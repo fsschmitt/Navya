@@ -1,4 +1,5 @@
 import urllib2
+import os
 from bs4 import BeautifulSoup
 
 #f = open('out.txt','w+')
@@ -10,6 +11,8 @@ from bs4 import BeautifulSoup
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoDesporto?format=xml').read())
 
 val = 1;
+newpath = r'Noticias/Desporto/'; 
+if not os.path.exists(newpath): os.makedirs(newpath)
 for item in soup.findAll('item'):
 	f = open('Noticias/Desporto/ %i.txt' % (val),'w+')
 	desc = item.description.string
@@ -33,6 +36,8 @@ for item in soup.findAll('item'):
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoCultura?format=xml').read())
 
 val = 1;
+newpath = r'Noticias/Cultura/'; 
+if not os.path.exists(newpath): os.makedirs(newpath)
 for item in soup.findAll('item'):
 	f = open('Noticias/Cultura/%i.txt' % (val),'w+')
 	desc = item.description.string
@@ -56,6 +61,8 @@ for item in soup.findAll('item'):
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoPolitica?format=xml').read())
 
 val = 1;
+newpath = r'Noticias/Politica/'; 
+if not os.path.exists(newpath): os.makedirs(newpath)
 for item in soup.findAll('item'):
 	f = open('Noticias/Politica/%i.txt' % (val),'w+')
 	desc = item.description.string
