@@ -2,5 +2,6 @@ Java/.settings
 Java/bin
 Java/.classpath
 Java/.project
+Java/*.arff
 .DS_Store
 Noticias/
