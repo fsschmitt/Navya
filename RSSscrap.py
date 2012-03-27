@@ -1,7 +1,7 @@
 import urllib2
 from bs4 import BeautifulSoup
 
-#f = open('out.txt','w')
+#f = open('out.txt','w+')
 
 #Publico
 
@@ -9,64 +9,71 @@ from bs4 import BeautifulSoup
 
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoDesporto?format=xml').read())
 
+val = 1;
 for item in soup.findAll('item'):
-	f = open('Noticias/Desporto/'+item.title.string.encode('UTF-8')+'.txt','w')
+	f = open('Noticias/Desporto/ %i.txt' % (val),'w+')
 	desc = item.description.string
 	num = desc.find("<")
 	f.write(item.title.string.encode('UTF-8')+'\n')
 	f.write(desc[0:num].encode('UTF-8'))
+	val = val + 1;
 
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.jn.pt/JN-Desporto').read())
 
 for item in soup.findAll('item'):
-	f = open('Noticias/Desporto/'+item.title.string.encode('UTF-8')+'.txt','w')
+	f = open('Noticias/Desporto/ %i.txt' % (val),'w+')
 	desc = item.description.string
 	num = desc.find("<")
 	f.write(item.title.string.encode('UTF-8')+'\n')
 	f.write(desc[0:num].encode('UTF-8'))
+	val = val + 1;
 
 #print >>f, '::RSS PUBLICO ECONOMIA::\n\n'
 
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoCultura?format=xml').read())
 
-fileName = 0;
+val = 1;
 for item in soup.findAll('item'):
-	f = open('Noticias/Cultura/'+str(fileName)+'.txt','w')
+	f = open('Noticias/Cultura/%i.txt' % (val),'w+')
 	desc = item.description.string
 	num = desc.find("<")
 	f.write(item.title.string.encode('UTF-8')+'\n')
 	f.write(desc[0:num].encode('UTF-8'))
-	fileName=fileName+1	
+	val = val + 1;
 
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.jn.pt/JN-Cultura').read())
 
-fileName = 0;
+
 for item in soup.findAll('item'):
-	f = open('Noticias/Cultura/'+str(fileName)+'.txt','w')
+	f = open('Noticias/Cultura/%i.txt' % (val),'w+')
 	desc = item.description.string
 	num = desc.find("<")
 	f.write(item.title.string.encode('UTF-8')+'\n')
 	f.write(desc[0:num].encode('UTF-8'))
-	fileName=fileName+1	
+	val = val + 1;
 
 
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoPolitica?format=xml').read())
 
+val = 1;
 for item in soup.findAll('item'):
-	f = open('Noticias/Politica/'+item.title.string.encode('UTF-8')+'.txt','w')
+	f = open('Noticias/Politica/%i.txt' % (val),'w+')
 	desc = item.description.string
 	num = desc.find("<")
 	f.write(item.title.string.encode('UTF-8')+'\n')
 	f.write(desc[0:num].encode('UTF-8'))
+	val = val + 1;
+
 
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.jn.pt/JN-Politica').read())
 
 for item in soup.findAll('item'):
-	f = open('Noticias/Politica/'+item.title.string.encode('UTF-8')+'.txt','w')
+	f = open('Noticias/Politica/%i.txt' % (val),'w+')
 	desc = item.description.string
 	num = desc.find("<")
 	f.write(item.title.string.encode('UTF-8')+'\n')
 	f.write(desc[0:num].encode('UTF-8'))	
+	val = val + 1;
 
 
 	
