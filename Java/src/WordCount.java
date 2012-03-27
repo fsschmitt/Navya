@@ -109,24 +109,69 @@ public static void main(String[] args){
 	   		}
          }
       
-     List wordsList = new ArrayList(allWords.values());
+      List wordsList = new ArrayList(allWords.values());
+      wordsFreq = new TreeMap<String, WordData>();
+      
+      Iterator iter = wordsList.iterator();
+      while (iter.hasNext()) {
+         WordData data = (WordData)iter.next();
+         wordsFreq.put(data.word, new WordData(data.word,0));
+      }
+      
+     
+      Iterator iterValues = files.values().iterator();
+      for(TreeMap t : filesWords)
+      {
+	      iter = wordsList.iterator();
+	      while (iter.hasNext()) {
+	         WordData data = (WordData)iter.next();
+	         if(t.containsKey(data.word)) {
+	        	 WordData data2 = (WordData) t.get(data.word);
+	        	 wordsFreq.put(data2.word, new WordData(data2.word, wordsFreq.get(data2.word).count+1));
+	         }
+	      }
+      }
+      
+      ArrayList<WordData> wordsFreqSorted = new ArrayList<WordData>(wordsFreq.values());
+      Collections.sort(wordsFreqSorted, new CountCompare());
+      
+      double limi = Double.parseDouble(args[2]);
+      double lims = Double.parseDouble(args[3]);
+       
+      for(int i = 0; i < wordsFreqSorted.size(); i++) {
+    	  double r = ((double)(wordsFreqSorted.get(i).count))/((double)(filesWords.size()));
+    	  if(r >= lims)
+    		  allWords.remove(wordsFreqSorted.get(i).word);
+    	  else
+    		  break;
+      }
+      
+      for(int i = wordsFreqSorted.size()-1; i > 0; i--) {
+    	 
+    	  double r = ((double)(wordsFreqSorted.get(i).count))/((double)(filesWords.size()));
+    	  if(r <= limi)
+    		  allWords.remove(wordsFreqSorted.get(i).word);
+    	  else
+    		  break;
+      }
+      
+      wordsList = new ArrayList(allWords.values());
       
       out.println("@RELATION news\n");
       
 
-      wordsFreq = new TreeMap<String, WordData>();
-      Iterator iter = wordsList.iterator();
+      
+      iter = wordsList.iterator();
       while (iter.hasNext()) {
          WordData data = (WordData)iter.next();
          out.println("@ATTRIBUTE "+ data.word + " REAL");
-         wordsFreq.put(data.word, new WordData(data.word,0));
       }
       
       out.println("\n@ATTRIBUTE class 	{'Politica', 'Desporto', 'Cultura'}\n");
       
       out.println("@DATA");
       
-      Iterator iterValues = files.values().iterator();
+      iterValues = files.values().iterator();
       for(TreeMap t : filesWords)
       {
     	  String categ = (String)iterValues.next();
@@ -136,7 +181,6 @@ public static void main(String[] args){
 	         if(t.containsKey(data.word)) {
 	        	 WordData data2 = (WordData) t.get(data.word);
 	        	 out.print(data2.count + ",");
-	        	 wordsFreq.put(data2.word, new WordData(data2.word, wordsFreq.get(data2.word).count+1));
 	         }
 	         else
 	        	 out.print("0,");
@@ -146,8 +190,7 @@ public static void main(String[] args){
       }
       System.out.println(wordsFreq.toString());
       
-      ArrayList<WordData> wordsFreqSorted = new ArrayList<WordData>(wordsFreq.values());
-      Collections.sort(wordsFreqSorted, new CountCompare());
+     
       
       
       
@@ -160,7 +203,7 @@ public static void main(String[] args){
          System.exit(1);
       }
       
-      System.out.println(allWords.size() + " distinct words were found.");
+      System.out.println(wordsList.size() + " distinct words were found.");
       
    } // end main()
    
@@ -187,7 +230,7 @@ static void openFiles(String[] args) {
           // If args.length != 2, or if an error occurs while trying to open
           // the files, then an error message is printed and the program
           // will be terminated.
-      if (args.length != 2) {
+      if (args.length != 4) {
          System.out.println("Error: Please specify file names on command line.");
          System.exit(1);
       }
