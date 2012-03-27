@@ -1,0 +1,80 @@
+PROGRAM FEATURES
+
+This wrapper allows the tuning of:
+   - missing values
+   - features
+   - ML algorithms parameters
+
+PROGRAM STRUCTURE
+
+The wrapper is compose by the following csh scripts:
+  - wrapperclass : includes the main program cycle for classification algorithms
+  - wrapperreg : includes the main program cycle for regression algorithms
+  - addOneAll: performs auxiliary tasks in the feature selection procedure
+
+
+ASSUMPTIONS
+
+It is assumed the following:
+   - there exist the directories: settings, work and results
+   - all configuration files are in the "settings" directory
+   - the data set is in the directory of the wrapper and in in Weka ARFF format
+   - the best results is stored in the files best.arrf and best.out in the
+     directory of wrapper
+   - the best for each algorithm will be stored in the "work" directory and are
+     files in a directory with the name of the algorithm
+   - the quality of the generated models are assessed via cross-validation 
+     implemented by Weka
+
+PROGRAM USE
+
+In order to adequate the wrapper to your needs please do the following
+configuration steps.
+
+1. Edit the wrapper[class|reg] file and change: 
+   i) WEKA_HOME variable to the place we have the weka.jar file
+   ii) the "CV_FOLDS" if the number of
+   folds is  different from 10
+   iii) DEPTHMAX variable to set the depth of the feature selection
+   (maximum number of features removed from the initial set). It works on 
+   breadth-first fashion
+
+2. In the "settings" directory edit the file "algorithms[class|reg]". Here you
+   write in each line the name of algorithms to be used.
+
+3. For each algorithm specified in the file "algorithms" there should be a file
+   in the "settings" directory with the filestem equal to the name in the 
+   algorithm's file and with the extension "conf". See below for the syntax of
+   the content of that file.
+
+4. In the "settings" directory edit the file "missing". Here you write in
+   each line the policies for handling missing values. Each line is one of:
+       donothing   .... meaning that the ML algorithms will take care of 
+                        missing values
+       replace     .... use Weka pre-processing procedure for missing values,
+                        that is, for nominal attributes use the attribute mode 
+                        value, for numerical attributes use the attribute mean 
+                        value.
+       remove      ...  remove from the data set records with missing values
+
+
+ML ALGORITHM CONFIGURATION FILE
+
+The Alg.conf files have the following syntax. In line 1 there must be
+the full name of the Weka java class for that algorithm.  In each of
+the following line the different parameters are specified. In each
+such line the first item is the name of the parameter as it appear in
+the Weka command line. The other items in the line, are separated by
+spaces, and represent the values for that parameter that are going to
+be evaluated in combination with other. Include as many values as you want.
+Example of a configuration file for J48 (j48.conf):
+weka.classifiers.trees.J48
+-M 2 5 10 15 20
+-C 0.01 0.2 0.4 0.5
+-A
+
+
+
+CONTACT
+
+Please send corrections and/or suggestions to rcamacho@fe.up.pt

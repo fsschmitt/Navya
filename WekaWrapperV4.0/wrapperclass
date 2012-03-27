@@ -1,0 +1,367 @@
+#!/bin/csh
+
+
+if ($#argv < 1 || $#argv > 3) then
+  echo "syntax: wrapper fileStem [cv-nfolds] [classPosition]"
+  echo "example: ./wrapperclass  file 5 29"
+  exit
+endif
+
+### System Settings
+
+set MEASURES_LINE=1  # Line of Precision, Recall ... measures to use in the
+                     # output of Weka. A number represents the line of the
+                     # class to use. If "w", the value the Weighted Avg. 
+                     # of the measureswill be used
+### Global variables
+
+set fileStem = $1
+
+echo "   [File stem is $1]"
+
+if ($#argv >= 2) then
+    set CV_FOLDS=$2
+else
+    set CV_FOLDS=10
+endif
+
+echo "   [Using $CV_FOLDS-fold cross validation]"
+
+if ($#argv >= 3) then
+  set CLASS_POS=$3          #class position
+else
+  set CLASS_POS="last"      #class position
+endif
+
+echo "   [Class position is $CLASS_POS]"
+
+# NOT YET implemented the removal of columns
+
+# set removeposition=$4 #remove position
+# echo "   [Removing columns $removeposition]"
+
+set ARFFfile=`echo $fileStem".arff"`
+
+if (! -e $ARFFfile) then
+  echo "[ERROR: can not find file $ARFFfile]"
+  exit
+endif
+
+###############################################
+#      G L O B A L      V A R s
+###############################################
+
+set DEBUG=0
+set LOG=1
+
+# Directories and [temporary] files
+
+set RESULTS_DIR="results/"
+set WORK_DIR="work/"
+set SETTINGS_DIR="settings/"
+set TMP="tmpResults"
+set resultcsv = $RESULTS_DIR'resultfile.csv'
+
+# Algorithms to use
+set MLalgorithms=`cat  $SETTINGS_DIR"algorithms-class"|grep -v "^#"`
+
+#set WEKA_HOME="/home/tau/Tools/Weka/weka-3-6-0"
+set WEKA_HOME="./"
+set CLASSPATH=".:$WEKA_HOME/weka.jar:$WEKA_HOME/wekaexperimenter.jar"
+#set CV_FILTER = "weka.filters.supervised.instance.StratifiedRemoveFolds"
+#set MEMOPTION = " -Xmx1512M "
+#set MEMOPTION = " -Xmx4096M "
+set MEMOPTION = " -Xmx8192M "
+
+
+# general clean up
+\rm -r -f $RESULTS_DIR* $WORK_DIR*  >& /dev/null
+
+
+############################################################################
+# Data set basic stats
+##############################################################################
+
+    if ($#argv == 4) then
+      echo "[Remove attributes of the dataset]"
+      java -cp $CLASSPATH weka.filters.unsupervised.attribute.Remove -R $removeposition -i $ORIGINALfile2 -o $ORIGINALfile
+    endif
+
+    echo "[collecting basic statistics of the dataset]"
+    java -cp $CLASSPATH weka.core.Instances $ARFFfile > $RESULTS_DIR"ds.stats"
+
+
+###############################################################################
+# Base line value for classification (using ZeroR)
+##############################################################################
+
+    echo "[Computing the base line performance measures using ZeroR]"
+    java -cp $CLASSPATH "weka.classifiers.rules.ZeroR"  -c $CLASS_POS -t $ARFFfile > $RESULTS_DIR$fileStem".zeroR"
+    echo "  Base line Accurary for dataset "$fileStem" is "`grep "^Correctly" $RESULTS_DIR$fileStem".zeroR"| tail -1 |gawk '{print $5}'`
+
+###############################################################################
+# Preparing the cycle
+###############################################################################
+
+
+echo "[Generating CV folds ...]"
+
+    if ($DEBUG == 1) then 
+	./mkCVFolds $ARFFfile $CV_FOLDS $CLASSPATH
+    else
+	./mkCVFolds $ARFFfile $CV_FOLDS $CLASSPATH >& /dev/null
+    endif
+    \mv -f CVt*.arff $WORK_DIR
+echo "[done]"
+
+echo "[Using ML algorithms: "$MLalgorithms"]"
+
+###############################################################################
+#                           MAIN cycle 
+###############################################################################
+
+echo ""
+echo "                     [MAIN cycle]"
+echo ""
+
+foreach algorithm ($MLalgorithms)
+
+    mkdir $WORK_DIR$algorithm
+
+    set LOGFILE=`echo $WORK_DIR${algorithm}"/LOG."$algorithm`
+    if ($LOG == 1) then 
+	echo -n  ""  > $LOGFILE
+    endif
+
+    echo "0 100" > $WORK_DIR"/results"     # Accuracy
+    echo "0 100" >> $WORK_DIR"/results"    # TP
+    echo "100 0" >> $WORK_DIR"/results"    # FP
+    echo "0 100" >> $WORK_DIR"/results"    # Precision
+    echo "0 100" >> $WORK_DIR"/results"    # Recall
+    echo "0 100" >> $WORK_DIR"/results"    # F measue
+    echo "0 100" >> $WORK_DIR"/results"    # ROC area measue
+
+    echo "  [Using ML algorithm: "$algorithm"]"
+    set Classifier = `head -1 $SETTINGS_DIR${algorithm}".conf"`
+    if ($DEBUG > 0) then
+      echo "Classifier weka command: "$Classifier
+    endif
+
+    # do Parameter tuning
+    echo "    [Parameter tuning]"
+    set paramCombinations=`./mkParametersCombinations $SETTINGS_DIR$algorithm".conf"`
+
+    if ($#paramCombinations > 0) then  # available parameters to tune
+
+     foreach parametersSet ($paramCombinations)
+
+	set parset=`echo $parametersSet|sed -e {s/\,/\ /g} -e {s/\'//g} -e {s/\%/\ /g}`
+
+	echo "      [performing "$CV_FOLDS"-fold CV with "$parset"]"
+
+	if ($LOG == 1) then 
+	    echo "      [performing "$CV_FOLDS"-fold CV with "$parset"]" >> $LOGFILE
+	endif
+
+	\rm -f ${WORK_DIR}"cv*.result"
+	set cv=1
+        while ($cv <= $CV_FOLDS)
+#	    echo "        Running fold $cv out of $CV_FOLDS"
+	    java $MEMOPTION -cp $CLASSPATH $Classifier  $parset  -c $CLASS_POS -t ${WORK_DIR}"CVtrain"$cv".arff" -T ${WORK_DIR}"CVtest"$cv".arff" -i > ${WORK_DIR}"cv"${cv}".result" 
+
+	   @ cv++
+        end # while CV cycle
+
+	\rm -f $WORK_DIR$TMP
+	./computePerformance $CV_FOLDS $MEASURES_LINE $WORK_DIR $WORK_DIR$TMP  >> $LOGFILE
+	./updateScores $WORK_DIR"results" $WORK_DIR$TMP "'"$parset"'" >> $LOGFILE
+
+#echo "./computePerformance" $CV_FOLDS $MEASURES_LINE $WORK_DIR $WORK_DIR$TMP
+#echo "./updateScores" $WORK_DIR"results" $WORK_DIR$TMP "'"$parset"'"
+
+       end  # end of Parameter tuning cycle
+
+     else # no parameters to tune
+
+	echo "      [performing "$CV_FOLDS"-fold CV]"
+
+	if ($LOG == 1) then 
+	    echo "      [performing "$CV_FOLDS"-fold CV]" >> $LOGFILE
+	endif
+
+	\rm -f ${WORK_DIR}"cv*.result"
+	set cv=1
+        while ($cv <= $CV_FOLDS)
+#	    echo "        Running fold $cv out of $CV_FOLDS"
+	    java $MEMOPTION -cp $CLASSPATH $Classifier -c $CLASS_POS -t ${WORK_DIR}"CVtrain"$cv".arff" -T ${WORK_DIR}"CVtest"$cv".arff" -i > ${WORK_DIR}"cv"${cv}".result" 
+
+	   @ cv++
+        end # while CV cycle
+
+	\rm -f $WORK_DIR$TMP
+	./computePerformance $CV_FOLDS  $MEASURES_LINE $WORK_DIR $WORK_DIR$TMP  >> $LOGFILE
+	./updateScores $WORK_DIR"results" $WORK_DIR$TMP "noparameters" >> $LOGFILE
+
+
+     endif
+
+     gzip -f $LOGFILE
+     # store best algorithm results
+
+     \cp -f $WORK_DIR"/results" $WORK_DIR${algorithm}"/"
+     \mv -f $WORK_DIR"/results" $RESULTS_DIR${algorithm}".bst"
+   end # of ML algorithms cycle
+
+###############################################################################
+#                           Final Results
+###############################################################################
+
+echo ""
+echo "                     [Collecting Final Results]"
+echo ""
+
+set bestAcc=0
+set bestTP=0
+set bestFP=100
+set bestPrec=0
+set bestRec=0
+set bestFmes=0
+set bestRoc=0
+
+echo "Algorithm;Accuracy;TruePositives;FalsePositives;Precision;Recall;F measure;ROC;TP;FP;Filename" > $resultcsv
+
+foreach algorithm ($MLalgorithms)
+
+    set acc=`head -1 $WORK_DIR$algorithm"/results"|awk '{print $1}'`
+    set accstd=`head -1 $WORK_DIR$algorithm"/results"|awk '{printf("%.2f", $2)}'`
+    if ( `echo $acc "-" $bestAcc " > 0" | bc` == 1) then
+	set bestAcc=`echo $acc|awk '{printf("%.2f", $1)}'`
+	set bestStdvAcc=`echo $accstd|awk '{printf("%.2f", $1)}'`
+#echo $acc
+	set bestAccAlg=$algorithm
+    else if ( `echo $acc "-" $bestAcc " == 0" | bc` == 1 && `echo $accstd "-" $bestStdvAcc " < 0" | bc` == 1) then
+	set bestAcc=`echo $acc|awk '{printf("%.2f", $1)}'`
+	set bestStdvAcc=`echo $accstd|awk '{printf("%.2f", $1)}'`
+#echo $acc
+	set bestAccAlg=$algorithm
+    endif
+
+    set tp=`head -2 $WORK_DIR$algorithm"/results"|tail -1|awk '{print $1}'`
+    set tpstd=`head -2 $WORK_DIR$algorithm"/results"|tail -1|awk '{printf("%.4f", $2)}'`
+    if ( `echo $tp "-" $bestTP " > 0" | bc` == 1) then
+	set bestTP=`echo $tp|awk '{printf("%.2f", $1)}'`
+	set bestStdvTP=`echo $tpstd|awk '{printf("%.4f", $1)}'`
+#echo $tp
+	set bestTPAlg=$algorithm
+    else if ( `echo $tp "-" $bestTP " == 0" | bc` == 1 && `echo $tpstd "-" $bestStdvTP " < 0" | bc` == 1) then
+	set bestTP=`echo $tp|awk '{printf("%.2f", $1)}'`
+	set bestStdvTP=`echo $tpstd|awk '{printf("%.4f", $1)}'`
+#echo $tp
+	set bestAccAlg=$algorithm
+    endif
+
+    set fp=`head -3 $WORK_DIR$algorithm"/results"|tail -1|awk '{print $1}'`
+    set fpstd=`head -3 $WORK_DIR$algorithm"/results"|tail -1|awk '{printf("%.4f", $2)}'`
+    if ( `echo $bestFP "-" $fp " > 0" | bc` == 1) then
+	set bestFP=`echo $fp|awk '{printf("%.2f", $1)}'`
+	set bestStdvFP=`head -3 $WORK_DIR$algorithm"/results"|tail -1|awk '{printf("%.4f", $2)}'`
+#echo $fp
+	set bestFPAlg=$algorithm
+    else if ( `echo $bestFP "-" $fp " == 0" | bc` == 1 && `echo $fpstd "-" $bestStdvFP " < 0" | bc` == 1) then
+	set bestFP=`echo $fp|awk '{printf("%.2f", $1)}'`
+	set bestStdvFP=`echo $fpstd|awk '{printf("%.4f", $1)}'`
+#echo $prec
+	set bestAccAlg=$algorithm
+    endif
+
+    set prec=`head -4 $WORK_DIR$algorithm"/results" |tail -1|awk '{print $1}'`
+    set precstd=`head -4 $WORK_DIR$algorithm"/results" |tail -1|awk '{printf("%.4f", $2)}'`
+    if ( `echo $prec "-" $bestPrec " > 0" | bc` == 1) then
+	set bestPrec=`echo $prec|awk '{printf("%.2f", $1)}'`
+	set bestStdvPrec=`echo $precstd|awk '{printf("%.4f", $1)}'`
+#echo $prec
+	set bestPrecAlg=$algorithm
+    else if ( `echo $prec "-" $bestPrec " == 0" | bc` == 1 && `echo $precstd "-" $bestStdvPrec " < 0" | bc` == 1) then
+	set bestPrec=`echo $prec|awk '{printf("%.2f", $1)}'`
+	set bestStdvPrec=`echo $precstd|awk '{printf("%.4f", $1)}'`
+#echo $prec
+	set bestAccAlg=$algorithm
+    endif
+
+    set rec=`head -5 $WORK_DIR$algorithm"/results" |tail -1|awk '{print $1}'`
+    set recstd=`head -5 $WORK_DIR$algorithm"/results" |tail -1|awk '{printf("%.4f", $2)}'`
+    if ( `echo $rec "-" $bestRec " > 0" | bc` == 1) then
+	set bestRec=`echo $rec|awk '{printf("%.2f", $1)}'`
+	set bestStdvRec=`echo $recstd|awk '{printf("%.4f", $2)}'`
+#echo $rec
+	set bestRecAlg=$algorithm
+    else if ( `echo $rec "-" $bestRec " == 0" | bc` == 1 && `echo $recstd "-" $bestStdvRec " < 0" | bc` == 1) then
+	set bestRec=`echo $rec|awk '{printf("%.2f", $1)}'`
+	set bestStdvRec=`echo $recstd|awk '{printf("%.4f", $2)}'`
+#echo $rec
+	set bestAccAlg=$algorithm
+    endif
+
+    set fmes=`head -6 $WORK_DIR$algorithm"/results" |tail -1|awk '{print $1}'`
+    set fmesstd=`head -6 $WORK_DIR$algorithm"/results" |tail -1 |awk '{printf("%.4f", $2)}'`
+    if ( `echo $fmes "-" $bestFmes " > 0" | bc` == 1) then
+	set bestFmes=`echo $fmes|awk '{printf("%.2f", $1)}'`
+	set bestStdvFmes=`echo $fmesstd|awk '{printf("%.4f", $2)}'`
+#echo $fmes
+	set bestFmesAlg=$algorithm
+    else if ( `echo $fmes "-" $bestFmes " == 0" | bc` == 1 && `echo $fmesstd "-" $bestStdvFmes " < 0" | bc` == 1) then
+	set bestFmes=`echo $fmes|awk '{printf("%.2f", $1)}'`
+	set bestStdvFmes=`echo $fmesstd|awk '{printf("%.4f", $2)}'`
+#echo $fmes
+	set bestAccAlg=$algorithm
+    endif
+
+    set roc=`head -7 $WORK_DIR$algorithm"/results" |tail -1|awk '{print $1}'`
+    set rocstd=`head -7 $WORK_DIR$algorithm"/results" |tail -1|awk '{printf("%.4f", $2)}'`
+    if ( `echo $roc "-" $bestRoc " > 0" | bc` == 1) then
+	set bestRoc=`echo $roc|awk '{printf("%.2f", $1)}'`
+	set bestStdvRoc=`echo $rocstd|awk '{printf("%.4f", $2)}'`
+#echo $roc
+	set bestRocAlg=$algorithm
+    else if ( `echo $roc "-" $bestRoc " == 0" | bc` == 1 && `echo $rocstd "-" $bestStdvRoc " < 0" | bc` == 1) then
+	set bestRoc=`echo $roc|awk '{printf("%.2f", $1)}'`
+	set bestStdvRoc=`echo $rocstd|awk '{printf("%.4f", $2)}'`
+#echo $roc
+	set bestAccAlg=$algorithm
+    endif
+
+    echo "$algorithm;$acc ($accstd);$tp ($tpstd);$fp ($fpstd);$prec ($precstd);$rec ($recstd);$fmes ($fmesstd);$roc ($rocstd);$tp($tpstd);$fp($fpstd);$ARFFfile" >> $resultcsv
+end # foreach ML algorithm
+
+echo "RESULT:"
+
+echo "   Best accuracy  = "$bestAcc "(" $bestStdvAcc ") ["$bestAccAlg "]" 
+echo "   Best true positives = "$bestTP "(" $bestStdvTP ") ["$bestTPAlg "]" 
+echo "   Best false positives = "$bestFP "(" $bestStdvFP ") ["$bestFPAlg "]"
+echo "   Best precision = " $bestPrec "(" $bestStdvPrec ") ["$bestPrecAlg "]" 
+echo "   Best recall    = " $bestRec "(" $bestStdvRec ") ["$bestRecAlg "]" 
+echo "   Best F measure = " $bestFmes "(" $bestStdvFmes ") ["$bestFmesAlg "]" 
+echo "   Best ROC       = " $bestRoc "(" $bestStdvRoc ") ["$bestRocAlg "]" 
+
+echo "   Best accuracy  = "$bestAcc "(" $bestStdvAcc ") ["$bestAccAlg "]" > ${RESULTS_DIR}"/bestRults"
+echo "   Best true positives = "$bestTP "(" $bestStdvTP ") ["$bestTPAlg "]" >> ${RESULTS_DIR}"/bestRults"
+echo "   Best false positives = "$bestFP "(" $bestStdvFP ") ["$bestFPAlg "]" >> ${RESULTS_DIR}"/bestRults"
+echo "   Best precision = " $bestPrec "(" $bestStdvPrec ") ["$bestPrecAlg "]" >> ${RESULTS_DIR}"/bestRults"
+echo "   Best recall    = " $bestRec "(" $bestStdvRec ") ["$bestRecAlg "]" >> ${RESULTS_DIR}"/bestRults"
+echo "   Best F measure = " $bestFmes "(" $bestStdvFmes ") ["$bestFmesAlg "]" >> ${RESULTS_DIR}"/bestRults"
+echo "   Best ROC       = " $bestRoc "(" $bestStdvRoc ") ["$bestRocAlg "]" >> ${RESULTS_DIR}"/bestRults"
+
+
+echo "RESULT:" >> $resultcsv
+
+echo "   Best accuracy  = "$bestAcc "(" $bestStdvAcc ") ["$bestAccAlg "]"  >> $resultcsv
+echo "   Best true positives = "$bestTP "(" $bestStdvTP ") ["$bestTPAlg "]"  >> $resultcsv
+echo "   Best false positives = "$bestFP "(" $bestStdvFP ") ["$bestFPAlg "]"  >> $resultcsv
+echo "   Best precision = " $bestPrec "(" $bestStdvPrec ") ["$bestPrecAlg "]"  >> $resultcsv
+echo "   Best recall    = " $bestRec "(" $bestStdvRec ") ["$bestRecAlg "]"  >> $resultcsv
+echo "   Best F measure = " $bestFmes "(" $bestStdvFmes ") ["$bestFmesAlg "]"  >> $resultcsv
+echo "   Best ROC       = " $bestRoc "(" $bestStdvRoc ") ["$bestRocAlg "]"  >> $resultcsv
+
+
+
+#\rm -r -f $WORK_DIR"*" $Attfile $ARRFfile

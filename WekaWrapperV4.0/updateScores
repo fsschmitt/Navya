@@ -1,0 +1,123 @@
+#!/bin/csh
+
+set CURRENT_BEST=$1
+set RESULTS_FILE=$2
+set PARAMETERS=""
+
+
+set i=3
+while($i <= $#argv)
+    set PARAMETERS=`echo $PARAMETERS " " $argv[$i]`
+    @ i++
+end
+
+echo "      [Updating best performance measures]"
+
+# Performance measures order:
+# acc =     # Accuracy
+# tp =      # True Positives
+# fp =      # False Positives
+# prec =    # Precision
+# rec =     # Recall
+# f =       # F measue
+# roc =     # ROC area measue
+
+set curbestAcc=`head -1 $CURRENT_BEST|awk '{print $1}'`
+set curbestTP=`head -2 $CURRENT_BEST| tail -1| awk '{print $1}'`
+set curbestFP=`head -3 $CURRENT_BEST| tail -1| awk '{print $1}'`
+set curbestPrec=`head -4 $CURRENT_BEST| tail -1| awk '{print $1}'`
+set curbestRec=`head -5 $CURRENT_BEST| tail -1| awk '{print $1}'`
+set curbestFmes=`head -6 $CURRENT_BEST| tail -1| awk '{print $1}'`
+set curbestRoc=`head -7 $CURRENT_BEST| tail -1| awk '{print $1}'`
+
+set resAcc=`head -1 $RESULTS_FILE|awk '{print $1}'`
+set resTP=`head -2 $RESULTS_FILE| tail -1| awk '{print $1}'`
+set resFP=`head -3 $RESULTS_FILE| tail -1| awk '{print $1}'`
+set resPrec=`head -4 $RESULTS_FILE| tail -1| awk '{print $1}'`
+set resRec=`head -5 $RESULTS_FILE| tail -1| awk '{print $1}'`
+set resFmes=`head -6 $RESULTS_FILE| tail -1| awk '{print $1}'`
+set resRoc=`head -7 $RESULTS_FILE| tail -1| awk '{print $1}'`
+
+
+
+#echo $curbestAcc " " $curbestTP " " $curbestFP " "$curbestPrec "  " $curbestRec " " $curbestFmes " " $curbestRoc
+#echo $resAcc " " $resTP " " $resFP "  " $resPrec "  " $resRec " " $resFmes " " $resRoc
+
+
+# Update Accuracy
+
+if ( `echo $resAcc "-" $curbestAcc ">0"|bc` == 1) then
+    set acc=`head -1 $RESULTS_FILE`
+    set acc=`echo $acc " " $PARAMETERS`
+    echo "        [Best accuracy so far is $resAcc]"
+else
+    set acc=`head -1 $CURRENT_BEST`
+endif
+
+# Update True Positives
+
+if ( `echo $resTP "-" $curbestTP ">0"|bc` == 1) then
+    set tp=`head -2 $RESULTS_FILE |tail -1`
+    set tp=`echo $tp " "$PARAMETERS`
+    echo "        [Best true positives so far is $resTP]"
+else
+    set tp=`head -2  $CURRENT_BEST | tail -1`
+endif
+
+# Update False Positives
+
+if ( `echo $curbestFP "-" $resFP ">0"|bc` == 1) then
+    set fp=`head -3 $RESULTS_FILE |tail -1`
+    set fp=`echo $fp " "$PARAMETERS`
+    echo "        [Best false positives so far is $resFP]"
+else
+    set fp=`head -3  $CURRENT_BEST | tail -1`
+endif
+
+# Update Precision
+
+if ( `echo $resPrec "-" $curbestPrec ">0"|bc` == 1) then
+    set prec=`head -4 $RESULTS_FILE |tail -1`
+    set prec=`echo $prec " "$PARAMETERS`
+    echo "        [Best precision so far is $resPrec]"
+else
+    set prec=`head -4  $CURRENT_BEST | tail -1`
+endif
+
+# Update Recall
+
+if ( `echo $resRec "-" $curbestRec ">0"|bc` == 1) then
+    set rec=`head -5 $RESULTS_FILE |tail -1`
+    set rec=`echo $rec " " $PARAMETERS`
+    echo "        [Best recall so far is $resRec]"
+else
+    set rec=`head -5  $CURRENT_BEST | tail -1`
+endif
+
+# Update F measure
+
+if ( `echo $resFmes "-" $curbestFmes ">0"|bc` == 1) then
+    set fmes=`head -6 $RESULTS_FILE |tail -1`
+    set fmes=`echo $fmes " " $PARAMETERS`
+    echo "        [Best F measure so far is $resFmes]"
+else
+    set fmes=`head -6  $CURRENT_BEST | tail -1`
+endif
+
+# Update ROC area
+
+if ( `echo $resRoc "-" $curbestRoc ">0"|bc` == 1) then
+    set roc=`head -7 $RESULTS_FILE |tail -1`
+    set roc=`echo $roc " " $PARAMETERS`
+    echo "        [Best area under ROC so far is $resRoc]"
+else
+    set roc=`head -7  $CURRENT_BEST | tail -1`
+endif
+
+echo $acc > $CURRENT_BEST
+echo $tp >> $CURRENT_BEST
+echo $fp >> $CURRENT_BEST
+echo $prec >> $CURRENT_BEST
+echo $rec >> $CURRENT_BEST
+echo $fmes >> $CURRENT_BEST
+echo $roc >> $CURRENT_BEST

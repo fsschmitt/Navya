@@ -1,0 +1,35 @@
+#!/bin/bash
+#
+# expects the weka.jar as first parameter and the datasets to work on as 
+# second parameter.
+#
+# FracPete, 2007-04-10
+
+if [ ! $# -eq 3 ]
+then
+  echo
+  echo "usage: mkCVfolds dataset folds CLASSPATH"
+  echo
+  exit 1
+fi
+
+CLASSPATH=$3
+DATASET=$1
+FOLDS=$2
+FILTER=weka.filters.unsupervised.instance.RemoveFolds
+#FILTER=weka.filters.supervised.instance.StratifiedRemoveFolds
+SEED=1
+
+for ((i = 1; i <= $FOLDS; i++))
+do
+  echo "Generating pair $i/$FOLDS..."
+
+#  OUTFILE=`echo $DATASET | sed s/"\.arff"//g`
+  # train set
+#  java -cp $CLASSPATH $FILTER -V -N $FOLDS -F $i -S $SEED -i $DATASET -o "$OUTFILE-train-$i-of-$FOLDS.arff"
+  java -cp $CLASSPATH $FILTER -V -N $FOLDS -F $i -S $SEED -i $DATASET -o "CVtrain$i.arff"
+  # test set
+#  java -cp $JAR $FILTER    -N $FOLDS -F $i -S $SEED -i $DATASET -o "$OUTFILE-test-$i-of-$FOLDS.arff"
+  java -cp $CLASSPATH $FILTER    -N $FOLDS -F $i -S $SEED -i $DATASET -o "CVtest$i.arff"
+done
+

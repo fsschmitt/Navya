@@ -1,0 +1,23 @@
+#!/bin/csh
+set Classifier="weka.clusterers.SimpleKMeans" 
+set distanceFunction=`echo "-A "\"weka.core.EuclideanDistance -R first-last\"`
+echo $distanceFunction
+#set stringtowordvector=`echo weka.filters.unsupervised.attribute.StringToWordVector -R first-last -W 1000 -prune-rate -1.0 -N 0 -stemmer weka.core.stemmers.NullStemmer -M 1 -tokenizer "weka.core.tokenizers.WordTokenizer -delimiters \" \\r\\n\\t.,;:\\\'\\\"()?!\""`
+
+set stringtowordvector=`echo weka.filters.unsupervised.attribute.StringToWordVector -R first-last -W 1000 -prune-rate -1.0 -N 0 -stemmer weka.core.stemmers.NullStemmer -M 1 -tokenizer`
+set stringtowordvector2=`echo "weka.core.tokenizers.WordTokenizer -delimiters \" \\r\\n\\t.,;:\\\'\\`
+  
+#weka.filters.unsupervised.attribute.StringToWordVector -R first-last -W 1000 -prune-rate -1.0 -N 0 -stemmer weka.core.stemmers.NullStemmer -M 1 -tokenizer "weka.core.tokenizers.WordTokenizer -delimiters \" \\r\\n\\t.,;:\\\'\\\"()?!\""
+
+echo $stringtowordvector
+echo $stringtowordvector2
+
+set run=`echo " -Xmx1512M -cp .:/miasi/weka-3-6-0/weka.jar "$Classifier $distanceFunction $stringtowordvector" -V -M -I 500 -S 10 -N 3 -c 5 -t teste.arff > teste.txt"`
+echo $run
+#`echo $run`
+#eval java $run
+
+
+
+
+

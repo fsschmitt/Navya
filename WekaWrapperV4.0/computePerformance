@@ -1,0 +1,160 @@
+#!/bin/csh
+
+set  CV_FOLDS=$1
+set  MEASURES_LINE=$2
+set  WORK_DIR=$3
+set  RESULTS_FILE=$4
+
+set  NCLASSES=5 # maximum number of class values (dimension of confusin matrix)
+
+echo "      [Computing performance measures]"
+
+# Performance measures order:
+# acc =     # Accuracy
+# prec =    # Precision
+# rec =     # Recall
+# f =       # F measure
+# roc =     # ROC area measure
+
+set cv=1
+set acc=("")
+set tp=("")
+set fp=("")
+set prec=("")
+set rec=("")
+set fmeasure=("")
+set roc=("")
+
+while ($cv <= $CV_FOLDS)
+      set acc = ( $acc `grep "Correctly Classified Instances" work/cv${cv}.result | tail -1 |awk '{print $5}'`)
+
+      if($MEASURES_LINE == "w") then
+         set line=`grep "Weighted Avg." work/cv${cv}.result | tail -1|sed 's/Weighted\ Avg\.//g'`
+         set tp=($tp `echo $line | awk '{print $1}'`)
+         set fp=($fp `echo $line | awk '{print $2}'`)
+         set prec=($prec `echo $line | awk '{print $3}'`)
+         set rec=($rec  `echo $line | awk '{print $4}'`)
+         set fmeasure=($fmeasure  `echo $line | awk '{print $5}'`)
+         set roc=($roc  `echo $line | awk '{print $6}'`)
+      else
+       set tp=($tp `grep -A $NCLASSES "TP Rate" work/cv${cv}.result | tail -$NCLASSES | head -$MEASURES_LINE | tail -1|awk '{print $1}'`)
+       set fp=($fp `grep -A $NCLASSES "TP Rate" work/cv${cv}.result | tail -$NCLASSES | head -$MEASURES_LINE | tail -1|awk '{print $2}'`)
+       set prec=($prec `grep -A $NCLASSES "TP Rate" work/cv${cv}.result | tail -$NCLASSES | head -$MEASURES_LINE | tail -1|awk '{print $3}'`)
+       set rec=($rec `grep -A  $NCLASSES "TP Rate" work/cv${cv}.result | tail -$NCLASSES | head -$MEASURES_LINE | tail -1|awk '{print $4}'`)
+       set fmeasure=($fmeasure `grep -A  $NCLASSES "TP Rate" work/cv${cv}.result | tail -$NCLASSES | head  -$MEASURES_LINE | tail -1|awk '{print $5}'`)
+         set tmp1=`grep -A  $NCLASSES "TP Rate" work/cv${cv}.result | sed 's/\?/x/g' |tail -$NCLASSES | head -$MEASURES_LINE | tail -1|awk '{print $6}'`
+         set tmp=`echo $tmp1 |awk '{if($0 != "x") print $0; else print "0"}'`
+       set roc=($roc $tmp)
+       endif
+
+      @ cv++
+end # while
+
+# Accuracy
+
+set cv=1
+set sum=0
+set sumSq=0
+while ($cv <= $CV_FOLDS)
+      set sum = `echo $sum "+" $acc[$cv]|bc -l`
+      set sumSq = `echo $sumSq "+" $acc[$cv] "*" $acc[$cv]|bc -l`
+      @ cv++
+end # while
+
+set mean=`echo $sum "/" $CV_FOLDS|bc -l`
+set stdv=`echo "sqrt(("$sumSq  "-" $sum "*" $mean")/(" $CV_FOLDS "-1))"|bc -l`
+echo $mean " " $stdv | awk '{printf("%.2f %.2f\n", $1, $2)}' > $RESULTS_FILE
+
+# True Positives
+
+set cv=1
+set sum=0
+set sumSq=0
+while ($cv <= $CV_FOLDS)
+      set sum = `echo $sum "+" $tp[$cv]|bc -l`
+      set sumSq = `echo $sumSq "+" $tp[$cv] "*" $tp[$cv]|bc -l`
+      @ cv++
+end # while
+
+set mean=`echo $sum "/" $CV_FOLDS|bc -l`
+set stdv=`echo "sqrt(("$sumSq  "-" $sum "*" $mean")/(" $CV_FOLDS "-1))"|bc -l`
+echo $mean " " $stdv | awk '{printf("%.2f %.4f\n", $1, $2)}' >> $RESULTS_FILE
+
+
+# False Positives
+
+set cv=1
+set sum=0
+set sumSq=0
+while ($cv <= $CV_FOLDS)
+      set sum = `echo $sum "+" $fp[$cv]|bc -l`
+      set sumSq = `echo $sumSq "+" $fp[$cv] "*" $fp[$cv]|bc -l`
+      @ cv++
+end # while
+
+set mean=`echo $sum "/" $CV_FOLDS|bc -l`
+set stdv=`echo "sqrt(("$sumSq  "-" $sum "*" $mean")/(" $CV_FOLDS "-1))"|bc -l`
+echo $mean " " $stdv | awk '{printf("%.2f %.4f\n", $1, $2)}' >> $RESULTS_FILE
+
+
+# Precision
+
+set cv=1
+set sum=0
+set sumSq=0
+while ($cv <= $CV_FOLDS)
+      set sum = `echo $sum "+" $prec[$cv]|bc -l`
+      set sumSq = `echo $sumSq "+" $prec[$cv] "*" $prec[$cv]|bc -l`
+      @ cv++
+end # while
+
+set mean=`echo $sum "/" $CV_FOLDS|bc -l`
+set stdv=`echo "sqrt(("$sumSq  "-" $sum "*" $mean")/(" $CV_FOLDS "-1))"|bc -l`
+echo $mean " " $stdv | awk '{printf("%.2f %.4f\n", $1, $2)}' >> $RESULTS_FILE
+
+
+# Recall
+
+set cv=1
+set sum=0
+set sumSq=0
+while ($cv <= $CV_FOLDS)
+      set sum = `echo $sum "+" $rec[$cv]|bc -l`
+      set sumSq = `echo $sumSq "+" $rec[$cv] "*" $rec[$cv]|bc -l`
+      @ cv++
+end # while
+
+set mean=`echo $sum "/" $CV_FOLDS|bc -l`
+set stdv=`echo "sqrt(("$sumSq  "-" $sum "*" $mean")/(" $CV_FOLDS "-1))"|bc -l`
+echo $mean " " $stdv | awk '{printf("%.2f %.4f\n", $1, $2)}' >> $RESULTS_FILE
+
+# F measure
+
+set cv=1
+set sum=0
+set sumSq=0
+while ($cv <= $CV_FOLDS)
+      set sum = `echo $sum "+" $fmeasure[$cv]|bc -l`
+      set sumSq = `echo $sumSq "+" $fmeasure[$cv] "*" $fmeasure[$cv]|bc -l`
+      @ cv++
+end # while
+
+set mean=`echo $sum "/" $CV_FOLDS|bc -l`
+set stdv=`echo "sqrt(("$sumSq  "-" $sum "*" $mean")/(" $CV_FOLDS "-1))"|bc -l`
+echo $mean " " $stdv  | awk '{printf("%.2f %.4f\n", $1, $2)}' >> $RESULTS_FILE
+
+# ROC area
+
+set cv=1
+set sum=0
+set sumSq=0
+while ($cv <= $CV_FOLDS)
+      set sum = `echo $sum "+" $roc[$cv]|bc -l`
+      set sumSq = `echo $sumSq "+" $roc[$cv] "*" $roc[$cv]|bc -l`
+      @ cv++
+end # while
+
+set mean=`echo $sum "/" $CV_FOLDS|bc -l`
+set stdv=`echo "sqrt(("$sumSq  "-" $sum "*" $mean")/(" $CV_FOLDS "-1))"|bc -l`
+echo $mean " " $stdv  | awk '{printf("%.2f %.4f\n", $1, $2)}'>> $RESULTS_FILE
+

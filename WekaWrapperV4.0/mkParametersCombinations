@@ -1,0 +1,50 @@
+#!/bin/csh
+
+set file=$1
+
+set nlines=`wc -l $file|gawk '{print $1}'`
+set TMP="___t__m_p__"
+set TMPTMP="___t__m_p_tmp_"
+echo -n "" > $TMP
+set i=2
+while ($i <= $nlines)
+      set symbol = `head -$i $file|tail -1| gawk '{printf $1}'`
+      set values = `head -$i $file|tail -1| gawk '{for(i=2;i<=NF;i++) printf $i" "}'`
+      #echo $symbol
+      #echo $#values 
+      
+      if ($#values == 0) then
+         
+         echo -n "'"$symbol",%' " >> $TMP
+         echo -n "'%,%' " >> $TMP
+      else
+        foreach value ($values)
+	   
+           echo -n "'"$symbol","$value"' " >> $TMP
+        end
+      endif
+      @ i++
+      echo "" >> $TMP
+end
+
+head -1 $TMP > $TMPTMP
+
+set nlines=`wc -l $TMP|gawk '{print $1}'`
+set i=2
+while ($i <= $nlines)
+    set list=`cat $TMPTMP`
+    echo -n "" > $TMPTMP
+#echo "LIST: "$list
+    set values = `head -$i $TMP|tail -1`
+#echo "values: "$values
+    foreach value ($values)
+      foreach item ($list)
+         echo -n $item","$value" " >> $TMPTMP
+      end
+#    echo "" >> $TMPTMP
+    end
+    @ i++
+end
+
+cat $TMPTMP
+\rm -f $TMP $TMPTMP

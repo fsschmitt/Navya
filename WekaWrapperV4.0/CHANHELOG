@@ -1,0 +1,15 @@
+DELETED
+
+  -- the feature selection layer
+
+  -- the missing values layer
+
+ADDED:
+
+   -- Computes best measures:
+          Accuracy, Precision, Recall and F measure
+
+   -- Uses experimenter to get all individual values of CV and computes the 
+      mean and standard deviation for each measure
+
+   -- each algorithm stores the LOG in a different file that is gzipped before the next starts

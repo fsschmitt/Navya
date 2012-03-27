@@ -1,0 +1,28 @@
+#!/bin/csh
+
+if ($#argv != 1) then
+    echo "syntax: addOneAtt AttributeSelectionFile"
+    exit
+endif
+
+set lastCombination=`head -1 $1`
+set listOfAll=`tail -1 $1`
+set tmpfile="__tmp__"
+
+echo -n "" > $tmpfile
+
+###############################################
+# levels > 1 of breadth-first feature selection
+###############################################
+
+# echo "|"$lastCombination"|"
+# echo "|"$listOfAll"|"
+foreach old ($lastCombination)
+ foreach att ($listOfAll)
+   echo -n $old|gawk -v k=$att -F',' '{flag=0;for(i=1; i<= NF;i++) if($i == k) {flag=1;break;}; if(flag) exit; for(i=1; i <= NF;i++)\
+       printf $i" "; print k}' |gawk '{split($0,a);n=asort(a); for(i=1;i<=n;i++)printf("%s,",a[i]);printf" "}' | sed {s/\,\,/\,/g}| sed {s/\,\ /\ /g} >> $tmpfile
+	end  # foreach
+end  # foreach
+       cat $tmpfile | gawk '{for(i=1;i<=NF;i++) print $i}' | sort -u| gawk '{printf $0" "}'
+
+\rm -f $tmpfile
