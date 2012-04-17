@@ -1,5 +1,6 @@
 import urllib2
 import os
+import time
 from bs4 import BeautifulSoup
 
 #f = open('out.txt','w+')
@@ -14,7 +15,7 @@ val = 1;
 newpath = r'Noticias/Desporto/'; 
 if not os.path.exists(newpath): os.makedirs(newpath)
 for item in soup.findAll('item'):
-	f = open('Noticias/Desporto/ %i.txt' % (val),'w+')
+	f = open('Noticias/Desporto/ %i.txt' % (val+time.time()),'w+')
 	desc = item.description.string
 	num = desc.find("<")
 	f.write(item.title.string.encode('UTF-8')+'\n')
@@ -22,9 +23,8 @@ for item in soup.findAll('item'):
 	val = val + 1;
 
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.jn.pt/JN-Desporto').read())
-
 for item in soup.findAll('item'):
-	f = open('Noticias/Desporto/ %i.txt' % (val),'w+')
+	f = open('Noticias/Desporto/ %i.txt' % (val+time.time()),'w+')
 	desc = item.description.string
 	num = desc.find("<")
 	f.write(item.title.string.encode('UTF-8')+'\n')
@@ -39,7 +39,7 @@ val = 1;
 newpath = r'Noticias/Cultura/'; 
 if not os.path.exists(newpath): os.makedirs(newpath)
 for item in soup.findAll('item'):
-	f = open('Noticias/Cultura/%i.txt' % (val),'w+')
+	f = open('Noticias/Cultura/%i.txt' % (val+time.time()),'w+')
 	desc = item.description.string
 	num = desc.find("<")
 	f.write(item.title.string.encode('UTF-8')+'\n')
@@ -50,7 +50,7 @@ soup = BeautifulSoup(urllib2.urlopen('http://feeds.jn.pt/JN-Cultura').read())
 
 
 for item in soup.findAll('item'):
-	f = open('Noticias/Cultura/%i.txt' % (val),'w+')
+	f = open('Noticias/Cultura/%i.txt' % (val+time.time()),'w+')
 	desc = item.description.string
 	num = desc.find("<")
 	f.write(item.title.string.encode('UTF-8')+'\n')
@@ -64,7 +64,7 @@ val = 1;
 newpath = r'Noticias/Politica/'; 
 if not os.path.exists(newpath): os.makedirs(newpath)
 for item in soup.findAll('item'):
-	f = open('Noticias/Politica/%i.txt' % (val),'w+')
+	f = open('Noticias/Politica/%i.txt' % (val+time.time()),'w+')
 	desc = item.description.string
 	num = desc.find("<")
 	f.write(item.title.string.encode('UTF-8')+'\n')
@@ -75,7 +75,7 @@ for item in soup.findAll('item'):
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.jn.pt/JN-Politica').read())
 
 for item in soup.findAll('item'):
-	f = open('Noticias/Politica/%i.txt' % (val),'w+')
+	f = open('Noticias/Politica/%i.txt' % (val+time.time()),'w+')
 	desc = item.description.string
 	num = desc.find("<")
 	f.write(item.title.string.encode('UTF-8')+'\n')
