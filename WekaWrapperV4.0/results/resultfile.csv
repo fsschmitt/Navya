@@ -1,0 +1,11 @@
+Algorithm;Accuracy;TruePositives;FalsePositives;Precision;Recall;F measure;ROC;TP;FP;Filename
+ibk;52.93 (9.98);0.63 (0.1095);0.00 (0.0000);0.83 (0.2356);0.63 (0.1095);0.60 (0.0937);0.82 (0.1020);0.63(0.1095);0.00(0.0000);out.arff
+j48;70.87 (12.91);0.77 (0.1053);0.09 (0.1047);0.81 (0.2338);0.77 (0.1053);0.73 (0.1687);0.87 (0.1383);0.77(0.1053);0.09(0.1047);out.arff
+RESULT:
+   Best accuracy  = 70.87 ( 12.91 ) [j48 ]
+   Best true positives = 0.77 ( 0.1053 ) [j48 ]
+   Best false positives = 0.00 ( 0.0000 ) [ibk ]
+   Best precision =  0.83 ( 0.2356 ) [ibk ]
+   Best recall    =  0.77 ( 0.0000 ) [j48 ]
+   Best F measure =  0.73 ( 0.0000 ) [j48 ]
+   Best ROC       =  0.87 ( 0.0000 ) [j48 ]

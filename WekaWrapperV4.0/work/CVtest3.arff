@@ -1,0 +1,109 @@
+@relation news-weka.filters.unsupervised.instance.RemoveFolds-S1-N5-F3
+
+@attribute a numeric
+@attribute anos numeric
+@attribute antónio numeric
+@attribute ao numeric
+@attribute aos numeric
+@attribute após numeric
+@attribute as numeric
+@attribute com numeric
+@attribute como numeric
+@attribute da numeric
+@attribute das numeric
+@attribute depois numeric
+@attribute disse numeric
+@attribute diz numeric
+@attribute do numeric
+@attribute dos numeric
+@attribute e numeric
+@attribute em numeric
+@attribute entre numeric
+@attribute esta numeric
+@attribute este numeric
+@attribute está numeric
+@attribute estão numeric
+@attribute feira numeric
+@attribute final numeric
+@attribute foi numeric
+@attribute futebol numeric
+@attribute geral numeric
+@attribute governo numeric
+@attribute hoje numeric
+@attribute jogo numeric
+@attribute josé numeric
+@attribute já numeric
+@attribute liga numeric
+@attribute líder numeric
+@attribute mais numeric
+@attribute mas numeric
+@attribute ministro numeric
+@attribute mundo numeric
+@attribute na numeric
+@attribute nesta numeric
+@attribute no numeric
+@attribute nos numeric
+@attribute não numeric
+@attribute o numeric
+@attribute os numeric
+@attribute para numeric
+@attribute passos numeric
+@attribute país numeric
+@attribute pela numeric
+@attribute pelo numeric
+@attribute pitch numeric
+@attribute por numeric
+@attribute portugal numeric
+@attribute português numeric
+@attribute presidente numeric
+@attribute primeiro numeric
+@attribute prémio numeric
+@attribute ps numeric
+@attribute público numeric
+@attribute que numeric
+@attribute se numeric
+@attribute secretário numeric
+@attribute segunda numeric
+@attribute ser numeric
+@attribute sexta numeric
+@attribute so numeric
+@attribute sobre numeric
+@attribute sporting numeric
+@attribute sábado numeric
+@attribute tem numeric
+@attribute terça numeric
+@attribute um numeric
+@attribute uma numeric
+@attribute vai numeric
+@attribute à numeric
+@attribute às numeric
+@attribute é numeric
+@attribute class {Politica,Desporto,Cultura}
+
+@data
+
+1,0,0,0,0,0,1,0,0,0,0,0,0,0,2,0,1,0,0,0,0,0,0,1,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,2,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,2,0,0,Cultura
+2,0,0,1,0,0,0,1,0,2,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,2,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,Politica
+0,0,0,0,0,0,0,2,0,0,0,0,0,0,1,1,3,2,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,Desporto
+0,0,0,0,0,1,0,0,1,1,0,0,1,0,3,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,1,1,0,0,0,2,0,0,0,0,0,1,1,0,0,Desporto
+2,0,0,0,0,0,0,1,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,0,0,0,1,2,0,3,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,2,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,Politica
+1,0,0,0,0,0,0,0,0,1,2,0,0,0,0,0,3,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,3,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,Desporto
+1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,Desporto
+0,0,0,2,0,1,0,0,0,0,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,2,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,0,0,0,0,Cultura
+2,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,2,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,2,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,Cultura
+1,1,0,0,0,0,0,0,1,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,3,2,0,0,0,1,Cultura
+1,0,0,0,0,0,0,3,0,0,1,0,0,0,1,1,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,4,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,Desporto
+1,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,3,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,Cultura
+0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,Cultura
+3,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,2,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,1,0,1,0,0,2,0,0,Desporto
+1,0,0,1,0,0,0,0,0,1,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,Desporto
+2,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,2,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,2,0,1,0,0,0,1,0,4,0,1,0,0,0,Cultura
+0,0,0,1,0,0,0,0,0,2,0,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,Politica
+1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,2,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,1,1,0,1,0,0,0,Desporto
+1,0,0,0,0,0,0,0,0,1,2,0,0,0,0,0,3,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,3,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,Desporto
+0,0,0,0,0,0,0,0,0,2,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,2,0,1,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,Politica
+0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,Cultura
+1,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,Desporto
+0,0,0,2,1,0,2,0,0,1,0,0,0,0,2,0,3,2,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,2,0,1,1,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,Politica
+1,0,0,1,0,0,0,0,0,0,0,0,1,0,2,0,0,0,0,1,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,Desporto
+1,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,1,0,0,2,0,0,0,0,0,0,0,0,1,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,Cultura

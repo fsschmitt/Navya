@@ -1,0 +1,46 @@
+
+ZeroR predicts class value: Politica
+
+Time taken to build model: 0.01 seconds
+Time taken to test model on training data: 0.02 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances          41               33.3333 %
+Incorrectly Classified Instances        82               66.6667 %
+Kappa statistic                          0     
+Mean absolute error                      0.4444
+Root mean squared error                  0.4714
+Relative absolute error                100      %
+Root relative squared error            100      %
+Total Number of Instances              123     
+
+
+=== Confusion Matrix ===
+
+  a  b  c   <-- classified as
+ 41  0  0 |  a = Politica
+ 41  0  0 |  b = Desporto
+ 41  0  0 |  c = Cultura
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances          40               32.5203 %
+Incorrectly Classified Instances        83               67.4797 %
+Kappa statistic                         -0.0122
+Mean absolute error                      0.4445
+Root mean squared error                  0.4715
+Relative absolute error                100      %
+Root relative squared error            100      %
+Total Number of Instances              123     
+
+
+=== Confusion Matrix ===
+
+  a  b  c   <-- classified as
+ 36  5  0 |  a = Politica
+ 37  4  0 |  b = Desporto
+ 37  4  0 |  c = Cultura
+

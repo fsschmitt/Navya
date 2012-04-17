@@ -69,9 +69,9 @@ set MLalgorithms=`cat  $SETTINGS_DIR"algorithms-class"|grep -v "^#"`
 set WEKA_HOME="./"
 set CLASSPATH=".:$WEKA_HOME/weka.jar:$WEKA_HOME/wekaexperimenter.jar"
 #set CV_FILTER = "weka.filters.supervised.instance.StratifiedRemoveFolds"
-#set MEMOPTION = " -Xmx1512M "
+set MEMOPTION = " -Xmx1512M "
 #set MEMOPTION = " -Xmx4096M "
-set MEMOPTION = " -Xmx8192M "
+#set MEMOPTION = " -Xmx8192M "
 
 
 # general clean up
