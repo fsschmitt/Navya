@@ -1,0 +1,76 @@
+
+Options: -M 25 -C 0.4 
+
+J48 pruned tree
+------------------
+
+feira <= 0
+|   que <= 0: Desporto (29.0/14.0)
+|   que > 0: Cultura (34.0/18.0)
+feira > 0: Politica (36.0/19.0)
+
+Number of Leaves  : 	3
+
+Size of the tree : 	5
+
+
+Time taken to build model: 0.07 seconds
+Time taken to test model on training data: 0.03 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances          48               48.4848 %
+Incorrectly Classified Instances        51               51.5152 %
+Kappa statistic                          0.23  
+Mean absolute error                      0.4156
+Root mean squared error                  0.4559
+Relative absolute error                 93.8804 %
+Root relative squared error             96.8974 %
+Total Number of Instances               99     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.586     0.271      0.472     0.586     0.523      0.681    Politica
+                 0.417     0.222      0.517     0.417     0.462      0.6      Desporto
+                 0.471     0.277      0.471     0.471     0.471      0.626    Cultura
+Weighted Avg.    0.485     0.255      0.488     0.485     0.483      0.633
+
+
+=== Confusion Matrix ===
+
+  a  b  c   <-- classified as
+ 17  4  8 |  a = Politica
+ 11 15 10 |  b = Desporto
+  8 10 16 |  c = Cultura
+
+
+=== Error on test data ===
+
+Correctly Classified Instances          12               50      %
+Incorrectly Classified Instances        12               50      %
+Kappa statistic                          0.2088
+Mean absolute error                      0.4178
+Root mean squared error                  0.4557
+Relative absolute error                 92.535  %
+Root relative squared error             94.997  %
+Total Number of Instances               24     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.667     0.167      0.8       0.667     0.727      0.792    Politica
+                 0.2       0.105      0.333     0.2       0.25       0.337    Desporto
+                 0.429     0.471      0.273     0.429     0.333      0.538    Cultura
+Weighted Avg.    0.5       0.243      0.549     0.5       0.513      0.623
+
+
+=== Confusion Matrix ===
+
+ a b c   <-- classified as
+ 8 0 4 | a = Politica
+ 0 1 4 | b = Desporto
+ 2 2 3 | c = Cultura
+
