@@ -38,9 +38,9 @@ getNews()
 
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoCultura?format=xml').read())
 val = 1;
-newpath = r'Noticias/Cultura/'
+newpath = r'Noticias/Cultura e Lazer/'
 if not os.path.exists(newpath): os.makedirs(newpath)
-newpath_string = 'Noticias/Cultura/'
+newpath_string = 'Noticias/Cultura e Lazer/'
 
 getNews()
 
@@ -60,9 +60,9 @@ getNews()
 
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoPolitica?format=xml').read())
 
-newpath = r'Noticias/Politica/'
+newpath = r'Noticias/Economia e Politica/'
 if not os.path.exists(newpath): os.makedirs(newpath)
-newpath_string = 'Noticias/Politica/'
+newpath_string = 'Noticias/Economia e Politica/'
 
 getNews()
 
@@ -76,9 +76,9 @@ val = 1
 
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoTecnologia').read())
 
-newpath = r'Noticias/Tecnologia/'
+newpath = r'Noticias/Ciencia e Tecnologia/'
 if not os.path.exists(newpath): os.makedirs(newpath)
-newpath_string = 'Noticias/Tecnologia/'
+newpath_string = 'Noticias/Ciencia e Tecnologia/'
 
 getNews()
 

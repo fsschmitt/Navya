@@ -167,7 +167,7 @@ public static void main(String[] args) throws IOException{
          out.println("@ATTRIBUTE "+ data.word + " REAL");
       }
       
-      out.println("\n@ATTRIBUTE class 	{'Politica', 'Desporto', 'Cultura'}\n");
+      out.println("\n@ATTRIBUTE class 	{'Economia e Politica', 'Desporto', 'Cultura e Lazer', 'Ciencia e Tecnologia', 'Sociedade'}\n");
       
       out.println("@DATA");
       
