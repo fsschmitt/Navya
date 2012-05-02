@@ -62,7 +62,7 @@ static class CountCompare implements Comparator {
 
 
    @SuppressWarnings({ "rawtypes", "unchecked" })
-public static void main(String[] args){
+public static void main(String[] args) throws IOException{
          // The program opens the input and output files.  It reads
          // words from the input file into a TreeMap, in which 
          // they are sorted by alphabetical order.  The words
@@ -190,11 +190,14 @@ public static void main(String[] args){
       }
       System.out.println(wordsFreq.toString());
       
-     
-      
-      
-      
-      System.out.println(wordsFreqSorted.get(0).word + wordsFreqSorted.get(0).count );
+      if (wordsFreqSorted.size() > 0) { 
+    	  System.out.println(wordsFreqSorted.get(0).word + wordsFreqSorted.get(0).count );
+    	  FileWriter fstream = new FileWriter("words.txt");
+    	  BufferedWriter out = new BufferedWriter(fstream);
+    	  for(WordData wd : wordsFreqSorted)
+    		  out.write(wd.word + "\r\n");
+    	  out.close();
+      }
       
       if (out.checkError()) {
             // Some error occurred on the output stream.
