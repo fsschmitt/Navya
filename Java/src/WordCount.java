@@ -190,14 +190,18 @@ public static void main(String[] args) throws IOException{
       }
       System.out.println(wordsFreq.toString());
       
-      if (wordsFreqSorted.size() > 0) { 
-    	  System.out.println(wordsFreqSorted.get(0).word + wordsFreqSorted.get(0).count );
-    	  FileWriter fstream = new FileWriter("words.txt");
-    	  BufferedWriter out = new BufferedWriter(fstream);
-    	  for(WordData wd : wordsFreqSorted)
-    		  out.write(wd.word + "\r\n");
-    	  out.close();
+	  FileWriter fstream = new FileWriter("words.txt");
+	  BufferedWriter filewriter = new BufferedWriter(fstream);
+	  iter = wordsList.iterator();
+      while (iter.hasNext()) {
+         WordData data = (WordData)iter.next();
+         filewriter.write(data.word);
+         if(iter.hasNext())
+        	 filewriter.write("\r\n");
+         else
+        	 break;
       }
+      filewriter.close();
       
       if (out.checkError()) {
             // Some error occurred on the output stream.
