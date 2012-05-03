@@ -104,3 +104,7 @@ getNews()
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoSociedade').read())
 
 getNews()
+
+soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoEducacao').read())
+
+getNews()
