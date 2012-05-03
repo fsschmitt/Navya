@@ -1,13 +1,13 @@
-<div>
-<ul class="breadcrumbs">
-	<li><a href="/">Home</a></li>
-	<li class="unavailable"><a href="#">Economia & Politica</a></li>
-	<li class="unavailable"><a href="#">Desporto</a></li>
-	<li class="unavailable"><a href="#">Cultura & Lazer</a></li>
-	<li class="unavailable"><a href="#">Ciencias & Tecnologia</a></li>
-	<li class="unavailable"><a href="#">Sociedade</a></li>
-	<div class="logo">Navya</div>
-</ul>
+<div class="tab">
+	<ul class="breadcrumbs">
+		<li class="current"><%= link_to "Home", :controller => "home", :action => "index"%></li>
+		<li><%= link_to "Economia & Politica", :controller => "more", :action => "index", :id => "economia" %></li>
+		<li><%= link_to "Desporto", :controller => "more", :action => "index", :id => "desporto" %></li>
+		<li><%= link_to "Cultura & Lazer", :controller => "more", :action => "index", :id => "cultura"%></li>
+		<li><%= link_to "Ciências & Tecnologia", :controller => "more", :action => "index", :id => "ciencias"%></li>
+		<li><%= link_to "Sociedade", :controller => "more", :action => "index", :id => "sociedade" %></li>
+		<div class="logo">Navya</div>
+	</ul>
 </div>
 
 <table class="header-container">
@@ -30,26 +30,39 @@
 	  <div class="row">
 	    <div class="four columns">
 	      <div class="title">Economia & Politica</div>
-	      <div class="content"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </div>			
+	    	<div class="content">
+		      	<% @economy_politics[0..4].each do |news| %>
+			        <ul>
+			        	<li>
+			        		<%= news %>
+			        	</li>
+			        </ul>
+		        <%end%>
+		        <div class = "see-more"> See more </div>
+			</div>			
 	    </div>
 	    <div class="four columns">
 	      <div class="title">Desporto</div>
-	      <div class="content"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </div>	
+	      <div class="content"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </div>
+	      <div class = "see-more"> See more </div>
 	    </div>
 	    <div class="four columns">
 	      <div class="title">Cultura & Lazer</div>
-	      <div class="content"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </div>				
+	      <div class="content"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </div>
+	      <div class = "see-more"> See more </div>			
 	    </div>
 	  </div>
 
 	  <div class="row">
 	  	<div class="six columns">
 	      <div class="title">Ciencias & Tecnologias</div>
-	      <div class="content"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </div>	
+	      <div class="content"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </div>
+	      <div class = "see-more"> See more </div>
 	    </div>
 	    <div class="six columns">
 	      <div class="title"> Sociedade </div>
-	      <div class="content"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </div>	
+	      <div class="content"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </div>
+	      <div class = "see-more"> See more </div>
 	    </div>
 	  </div>
 	</div>

@@ -1,0 +1,29 @@
+<div class="tab">
+	<ul class="breadcrumbs">
+		<li><%= link_to "Home", :controller => "home", :action => "index"%></li>
+		<li class=<%= "current" unless params[:id] != "economia" %>><%= link_to "Economia & Politica", :controller => "more", :action => "index", :id => "economia"%></li>
+		<li class=<%= "current" unless params[:id] != "desporto" %>><%= link_to "Desporto", :controller => "more", :action => "index", :id => "desporto"%></li>
+		<li class=<%= "current" unless params[:id] != "cultura" %>><%= link_to "Cultura & Lazer", :controller => "more", :action => "index", :id => "cultura"%></li>
+		<li class=<%= "current" unless params[:id] != "ciencias" %>><%= link_to "Ciências & Tecnologia", :controller => "more", :action => "index", :id => "ciencias"%></li>
+		<li class=<%= "current" unless params[:id] != "sociedade" %>><%= link_to "Sociedade", :controller => "more", :action => "index", :id => "sociedade"%></li>
+		<div class="logo">Navya</div>
+	</ul>
+</div>
+
+<table class="header-container">
+	<tr>
+		<td class="header-side">
+			<img class="leaves" src="../assets/leaves.png"/>
+		</td>
+		<td class="header-text-container">
+			<div class="header">Navya</div>
+			<div class="subheader">notícias num só lugar</div>
+		</td>
+		<td class="header-side">
+			<!--<img class="rss" src="assets/rss.png"/>-->
+		</td>
+	</tr>
+</table>
+
+
+<div class="title"><%= params[:id] %></div>

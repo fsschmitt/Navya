@@ -18,6 +18,14 @@ table tbody tr td {
 	padding: 0px;
 }
 
+table{
+	margin:0px;
+}
+
+.row {
+	padding-bottom: 50px;
+}
+
 .leaves{
 	padding-top:25px;
 	height:191px;
@@ -66,7 +74,7 @@ table tbody tr td {
 }
 
 .main-container{
-	padding-top:20px;
+	padding-top:50px;
 	background-color: #F4F4F4;
 	height:auto;
 }
@@ -78,4 +86,12 @@ table tbody tr td {
 
 .content{
 	text-align:justify;
+	min-height:250px;
+}
+
+.see-more{
+	position:absolute;
+	bottom:0px;
+	right:0px;
+	color:#2A85E8;
 }
