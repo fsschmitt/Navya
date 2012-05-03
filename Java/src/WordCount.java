@@ -18,7 +18,7 @@ import java.util.*;
 public class WordCount {
 
    static ArrayList<TextReader> in;   // An input stream for reading the input file.
-   static PrintWriter out; // Output stream for writing the output file.
+   static Writer  out; // Output stream for writing the output file.
    @SuppressWarnings("rawtypes")
    static ArrayList<TreeMap> filesWords;   // An input stream for reading the input file.
    static TreeMap<File,String> files;
@@ -62,7 +62,7 @@ static class CountCompare implements Comparator {
 
 
    @SuppressWarnings({ "rawtypes", "unchecked" })
-public static void main(String[] args){
+public static void main(String[] args) throws IOException{
          // The program opens the input and output files.  It reads
          // words from the input file into a TreeMap, in which 
          // they are sorted by alphabetical order.  The words
@@ -157,19 +157,17 @@ public static void main(String[] args){
       
       wordsList = new ArrayList(allWords.values());
       
-      out.println("@RELATION news\n");
-      
-
+      out.write("@RELATION news\n");
       
       iter = wordsList.iterator();
       while (iter.hasNext()) {
          WordData data = (WordData)iter.next();
-         out.println("@ATTRIBUTE "+ data.word + " REAL");
+         out.write("@ATTRIBUTE "+ data.word + " REAL\n");
       }
       
-      out.println("\n@ATTRIBUTE class 	{'Politica', 'Desporto', 'Cultura'}\n");
+      out.write("\n@ATTRIBUTE class 	{'Economia e Politica', 'Desporto', 'Cultura e Lazer', 'Ciencia e Tecnologia', 'Sociedade'}\n\n");
       
-      out.println("@DATA");
+      out.write("@DATA\n");
       
       iterValues = files.values().iterator();
       for(TreeMap t : filesWords)
@@ -180,28 +178,30 @@ public static void main(String[] args){
 	         WordData data = (WordData)iter.next();
 	         if(t.containsKey(data.word)) {
 	        	 WordData data2 = (WordData) t.get(data.word);
-	        	 out.print(data2.count + ",");
+	        	 out.write(data2.count + ",");
 	         }
 	         else
-	        	 out.print("0,");
+	        	 out.write("0,");
 	      }
-	      out.println("'"+categ+"'");
+	      out.write("'"+categ+"'\n");
 	      
       }
       System.out.println(wordsFreq.toString());
       
-     
-      
-      
-      
-      System.out.println(wordsFreqSorted.get(0).word + wordsFreqSorted.get(0).count );
-      
-      if (out.checkError()) {
-            // Some error occurred on the output stream.
-         System.out.println("An error occurred while writing the data.");
-         System.out.println("Output file might be missing or incomplete.");
-         System.exit(1);
+      Writer filewriter = new BufferedWriter(new OutputStreamWriter(
+			    new FileOutputStream("words.txt"), "UTF-8"));
+	  iter = wordsList.iterator();
+      while (iter.hasNext()) {
+         WordData data = (WordData)iter.next();
+         filewriter.write(data.word);
+         if(iter.hasNext())
+        	 filewriter.write("\r\n");
+         else
+        	 break;
       }
+      filewriter.close();
+      
+      out.close();
       
       System.out.println(wordsList.size() + " distinct words were found.");
       
@@ -281,7 +281,8 @@ static void openFiles(String[] args) {
          System.exit(1);
       }*/
       try {
-         out = new PrintWriter(new FileWriter(args[1]));
+    	  out = new BufferedWriter(new OutputStreamWriter(
+    			    new FileOutputStream(args[1]), "UTF-8"));
       }
       catch (IOException e) {
          System.out.println("Error: Can't open output file " + args[1]);

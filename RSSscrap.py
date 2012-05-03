@@ -1,97 +1,110 @@
 import urllib2
 import os
-import time
 from bs4 import BeautifulSoup
+import time
 
-#f = open('out.txt','w+')
 
-#Publico
+#DESPORTO
 
-#print >>f, '::RSS PUBLICO DESPORTO::\n\n'
-
+val = 1
+newpath = r'Noticias/Desporto/'
+newpath_string = 'Noticias/Desporto/'
+if not os.path.exists(newpath): os.makedirs(newpath)
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoDesporto?format=xml').read())
 
-val = 1;
-newpath = r'Noticias/Desporto/'; 
-if not os.path.exists(newpath): os.makedirs(newpath)
-for item in soup.findAll('item'):
-	f = open('Noticias/Desporto/ %i.txt' % (val+time.time()),'w+')
-	desc = item.description.string
-	num = desc.find("<")
-	f.write(item.title.string.encode('UTF-8')+'\n')
-	f.write(desc[0:num].encode('UTF-8'))
-	val = val + 1;
+def getNews() :
+	global soup
+	for item in soup.findAll('item'):
+		global val, newpath, newpath_string
+		f = open(newpath_string+'%i.txt' % (val+time.time()),'w+')
+		desc = item.description.string
+		num = desc.find("<")
+		f.write(item.title.string.encode('UTF-8')+'\n')
+		f.write(desc[0:num].encode('UTF-8'))
+		val = val + 1
+	return
+
+getNews()
 
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.jn.pt/JN-Desporto').read())
-for item in soup.findAll('item'):
-	f = open('Noticias/Desporto/ %i.txt' % (val+time.time()),'w+')
-	desc = item.description.string
-	num = desc.find("<")
-	f.write(item.title.string.encode('UTF-8')+'\n')
-	f.write(desc[0:num].encode('UTF-8'))
-	val = val + 1;
 
-#print >>f, '::RSS PUBLICO ECONOMIA::\n\n'
+getNews()
+
+soup = BeautifulSoup(urllib2.urlopen('http://services.sapo.pt/RSS/Feed/sapo/desporto/teasers').read())
+
+getNews()
+
+#CULTURA E BOA VIDA
 
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoCultura?format=xml').read())
-
 val = 1;
-newpath = r'Noticias/Cultura/'; 
+newpath = r'Noticias/Cultura e Lazer/'
 if not os.path.exists(newpath): os.makedirs(newpath)
-for item in soup.findAll('item'):
-	f = open('Noticias/Cultura/%i.txt' % (val+time.time()),'w+')
-	desc = item.description.string
-	num = desc.find("<")
-	f.write(item.title.string.encode('UTF-8')+'\n')
-	f.write(desc[0:num].encode('UTF-8'))
-	val = val + 1;
+newpath_string = 'Noticias/Cultura e Lazer/'
+
+getNews()
 
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.jn.pt/JN-Cultura').read())
 
+getNews()
 
-for item in soup.findAll('item'):
-	f = open('Noticias/Cultura/%i.txt' % (val+time.time()),'w+')
-	desc = item.description.string
-	num = desc.find("<")
-	f.write(item.title.string.encode('UTF-8')+'\n')
-	f.write(desc[0:num].encode('UTF-8'))
-	val = val + 1;
+soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoSociedade').read())
 
+getNews()
+
+soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoCiencias').read())
+
+getNews()
+
+#POLITICA E ECONOMIA
 
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoPolitica?format=xml').read())
 
-val = 1;
-newpath = r'Noticias/Politica/'; 
+newpath = r'Noticias/Economia e Politica/'
 if not os.path.exists(newpath): os.makedirs(newpath)
-for item in soup.findAll('item'):
-	f = open('Noticias/Politica/%i.txt' % (val+time.time()),'w+')
-	desc = item.description.string
-	num = desc.find("<")
-	f.write(item.title.string.encode('UTF-8')+'\n')
-	f.write(desc[0:num].encode('UTF-8'))
-	val = val + 1;
+newpath_string = 'Noticias/Economia e Politica/'
 
+getNews()
 
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.jn.pt/JN-Politica').read())
 
-for item in soup.findAll('item'):
-	f = open('Noticias/Politica/%i.txt' % (val+time.time()),'w+')
-	desc = item.description.string
-	num = desc.find("<")
-	f.write(item.title.string.encode('UTF-8')+'\n')
-	f.write(desc[0:num].encode('UTF-8'))	
-	val = val + 1;
+getNews()
 
 
-	
+#TECNOLOGIA E CIENCIA
+val = 1
 
-#JN
+soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoTecnologia').read())
 
-#print >>f, '\n\n::RSS JN::\n\n'
+newpath = r'Noticias/Ciencia e Tecnologia/'
+if not os.path.exists(newpath): os.makedirs(newpath)
+newpath_string = 'Noticias/Ciencia e Tecnologia/'
 
-#soup2 = BeautifulSoup(urllib2.urlopen('http://feeds.jn.pt/JN-ULTIMAS').read())
+getNews()
 
-#for item in soup2.findAll('item'):
-#	desc = item.description.string
-#	num = desc.find("<")
-#	print desc[0:num]
+soup = BeautifulSoup(urllib2.urlopen('http://feeds.jn.pt/JN-Tecnologia').read())
+
+getNews()
+
+soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoTecnologia').read())
+
+getNews()
+
+#SOCIEDADE
+val = 1
+
+soup = BeautifulSoup(urllib2.urlopen('http://feeds.jn.pt/JN-Sociedade').read())
+
+newpath = r'Noticias/Sociedade/'
+if not os.path.exists(newpath): os.makedirs(newpath)
+newpath_string = 'Noticias/Sociedade/'
+
+getNews()
+
+soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoSociedade').read())
+
+getNews()
+
+soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoEducacao').read())
+
+getNews()
