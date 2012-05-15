@@ -1,6 +1,6 @@
 <div class="tab">
 	<ul class="breadcrumbs">
-		<li><%= link_to "Home", :controller => "home", :action => "index"%></li>
+		<li <%= "class=current" unless params[:id] != nil %>><%= link_to "Home", :controller => "home", :action => "index"%></li>
 		<li <%= "class=current" unless params[:id] != "1" %>><%= link_to "Economia e Politica", :controller => "more", :action => "index", :id => "1"%></li>
 		<li <%= "class=current" unless params[:id] != "2" %>><%= link_to "Desporto", :controller => "more", :action => "index", :id => "2"%></li>
 		<li <%= "class=current" unless params[:id] != "3" %>><%= link_to "Cultura e Lazer", :controller => "more", :action => "index", :id => "3"%></li>
