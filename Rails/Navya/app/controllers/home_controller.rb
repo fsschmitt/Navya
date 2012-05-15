@@ -12,11 +12,9 @@ class HomeController < ApplicationController
   end
 
   def populate
-    puts `ls db/fixtures`
+    
+  	`cd db/fixtures; python RSSReader.py;java -jar Classifier.jar;rake db:seed_fu`
 
-  	puts `python db/fixtures/RSSReader.py`
-    #java -jar Classifier.jar`
-    #rake db:seed_fu`
   	redirect_to "#"
   end
 

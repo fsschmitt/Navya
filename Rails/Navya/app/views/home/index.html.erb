@@ -22,7 +22,7 @@
 		      	<% @economia.each do |news| %>
 			        <ul>
 			        	<li>
-			        		<%= link_to news.title, news.url.html_safe %>
+			        		<%= link_to news.title.html_safe, news.url.html_safe %>
 			        	</li>
 			        </ul>
 		        <%end%>
@@ -35,7 +35,7 @@
 		      	<% @desporto.each do |news| %>
 			        <ul>
 			        	<li>
-			        		<%= link_to news.title, news.url.html_safe %>
+			        		<%= link_to news.title.html_safe, news.url.html_safe %>
 			        	</li>
 			        </ul>
 		        <% end %>
@@ -48,7 +48,7 @@
 		      	<% @cultura_lazer.each do |news| %>
 			        <ul>
 			        	<li>
-			        		<%= link_to news.title, news.url.html_safe %>
+			        		<%= link_to news.title.html_safe, news.url.html_safe %>
 			        	</li>
 			        </ul>
 		        <%end%>
@@ -64,7 +64,7 @@
 		      	<% @ciencias_tecnologia.each do |news| %>
 			        <ul>
 			        	<li>
-			        		<%= link_to news.title, news.url.html_safe %>
+			        		<%= link_to news.title.html_safe, news.url.html_safe %>
 			        	</li>
 			        </ul>
 		        <%end%>
@@ -77,7 +77,7 @@
 		      	<% @sociedade.each do |news| %>
 			        <ul>
 			        	<li>
-			        		<%= link_to news.title, news.url.html_safe %>
+			        		<%= link_to news.title.html_safe, news.url.html_safe %>
 			        	</li>
 			        </ul>
 		        <%end%>
