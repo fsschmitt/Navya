@@ -1,4 +1,6 @@
 Navya::Application.routes.draw do
+  resources :news
+
   get "more/index"
 
   root :to => "home#index"
