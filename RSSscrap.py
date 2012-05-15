@@ -20,6 +20,7 @@ def getNews() :
 		desc = item.description.string
 		num = desc.find("<")
 		f.write(item.title.string.encode('UTF-8')+'\n')
+		f.write(item.link.string.encode('UTF-8')+'\n')
 		f.write(desc[0:num].encode('UTF-8'))
 		val = val + 1
 	return
