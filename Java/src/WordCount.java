@@ -83,10 +83,8 @@ public static void main(String[] args) throws IOException{
       System.out.println("Read "+files.size()+" files.");
       
       Iterator iterFile = files.keySet().iterator();
-	  Iterator iterCat = files.values().iterator();
-      while (iterFile.hasNext()) {
-    	 String cat = (String)iterCat.next();
-         File f = (File)iterFile.next();
+	  while (iterFile.hasNext()) {
+    	 File f = (File)iterFile.next();
         	words = new TreeMap();
        	  	TextReader t;
        	  	try {
@@ -237,13 +235,11 @@ static void openFiles(String[] args) {
       //try {
     	  File dir = new File(args[0]);
     	  files = new TreeMap<File, String>();
-    	  ArrayList<File> categoryFiles; 
     	  File[] categories = dir.listFiles();
     	  if (categories == null) {
     	      // Either dir does not exist or is not a directory
     	  } else {
     	      for (int i=0; i<categories.length; i++) {
-    	    	  categoryFiles = new ArrayList<File>();
     	    	  // Get filename of file or directory
     	          String filename = categories[i].getName();
     	          if(categories[i] == null || categories[i].getName().contains(".")){

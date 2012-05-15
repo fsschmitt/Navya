@@ -34,6 +34,7 @@ public class TextReader extends FilterReader {
 		// checkError() method after each input operation to see whether the operation
 		// completed successfully.
 
+		@SuppressWarnings("serial")
 		public static class Error extends RuntimeException {
 		      // Represents any excpetion that occurs in the TextReader Class.
 		      // In fact, only general IOExceptions are translated directly into
@@ -44,6 +45,7 @@ public class TextReader extends FilterReader {
 		   }
 		}
 
+		@SuppressWarnings("serial")
 		public static class FormatError extends Error {
 		      // Illegal data: an illegal number or an illegal boolean value
 		   FormatError(String errorMessage) {
@@ -51,6 +53,7 @@ public class TextReader extends FilterReader {
 		   }
 		}
 
+		@SuppressWarnings("serial")
 		public static class EOFError extends Error {
 		     // attempt to read past end of stream
 		   EOFError(String errorMessage) {

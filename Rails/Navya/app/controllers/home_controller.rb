@@ -12,8 +12,11 @@ class HomeController < ApplicationController
   end
 
   def populate
-  	@populate = `rake db:seed_fu`
-  	#File.delete("db/fixtures.news.rb")
+    puts `ls db/fixtures`
+
+  	puts `python db/fixtures/RSSReader.py`
+    #java -jar Classifier.jar`
+    #rake db:seed_fu`
   	redirect_to "#"
   end
 
