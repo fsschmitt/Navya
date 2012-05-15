@@ -10,4 +10,11 @@ class HomeController < ApplicationController
   	@sociedade = News.where("category = ?", 5).limit(5)
 
   end
+
+  def populate
+  	@populate = `rake db:seed_fu`
+  	#File.delete("db/fixtures.news.rb")
+  	redirect_to "#"
+  end
+
 end
