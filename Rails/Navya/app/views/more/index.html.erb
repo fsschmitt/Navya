@@ -16,16 +16,17 @@
 
 <div class="title"><%= @category %></div>
 <div>
-<% if @news.count != 0 %>
-	
-	<% @news.each do |news| %>
-	<div><%= news.title %></div>
-	<% end %>
-	
-<% else %>
+	<dl class="nice vertical tabs">
+		<% if @news.count != 0 %>
+			
+			<% @news.each do |news| %>
+			<dd><a href="<%= news.url.html_safe %>"><%= news.title %></a></dd>
+			<% end %>
+			
+		<% else %>
 
-	<div>Não existem notícias nesta categoria.</div>
+			<dd><a href="#" class="active">Não existem notícias nesta categoria.</a></dd>
 
-<% end %>
-
+		<% end %>
+	</dl>
 </div>
