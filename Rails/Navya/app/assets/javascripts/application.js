@@ -14,3 +14,15 @@
 //= require jquery_ujs
 //= require foundation
 //= require_tree .
+
+$(document).ready(function() {
+  $(".news-content").hide();
+
+$(".news-title").click(function() {
+	$(".news-content").hide({direction: "up"});
+	var id = "#"+$(this).attr("id")+"-content"
+	$(id).show({direction: "down"});
+});
+
+});
+

@@ -19,39 +19,33 @@
 	    <div class="four columns">
 	      <div class="title">Economia e Politica</div>
 	    	<div class="content">
+	    		<dl class="nice vertical tabs">
 		      	<% @economia.each do |news| %>
-			        <ul>
-			        	<li>
-			        		<%= link_to news.title.html_safe, news.url.html_safe %>
-			        	</li>
-			        </ul>
+			        <dd><a href="<%= news.url.html_safe %>"><%= news.title.html_safe %></a></dd>
 		        <%end%>
+		        </dl>
 		        <div class = "see-more"><%= link_to "Ver mais", :controller => "more", :action => "index", :id => "1"%></div>
 			</div>			
 	    </div>
 	    <div class="four columns">
 	      <div class="title">Desporto</div>
 	      <div class="content">
+	      	<dl class="nice vertical tabs">
 		      	<% @desporto.each do |news| %>
-			        <ul>
-			        	<li>
-			        		<%= link_to news.title.html_safe, news.url.html_safe %>
-			        	</li>
-			        </ul>
+		      	<dd><a href="<%= news.url.html_safe %>"><%= news.title.html_safe %></a></dd>
 		        <% end %>
+		    </dl>
 		         <div class = "see-more"><%= link_to "Ver mais", :controller => "more", :action => "index", :id => "2"%></div>
 			</div>			
 	    </div>
 	    <div class="four columns">
 	      <div class="title">Cultura e Lazer</div>
 	      <div class="content">
+	      	<dl class="nice vertical tabs">
 		      	<% @cultura_lazer.each do |news| %>
-			        <ul>
-			        	<li>
-			        		<%= link_to news.title.html_safe, news.url.html_safe %>
-			        	</li>
-			        </ul>
+			        <dd><a href="<%= news.url.html_safe %>"><%= news.title.html_safe %></a></dd>
 		        <%end%>
+		    </dl>
 		         <div class = "see-more"><%= link_to "Ver mais", :controller => "more", :action => "index", :id => "3"%></div>
 			</div>			
 	  </div>
@@ -61,26 +55,22 @@
 	  	<div class="four columns">
 	      <div class="title">Ciencias e Tecnologias</div>
 	     <div class="content">
+	     	<dl class="nice vertical tabs">
 		      	<% @ciencias_tecnologia.each do |news| %>
-			        <ul>
-			        	<li>
-			        		<%= link_to news.title.html_safe, news.url.html_safe %>
-			        	</li>
-			        </ul>
+			       	<dd><a href="<%= news.url.html_safe %>"><%= news.title.html_safe %></a></dd>
 		        <%end%>
+		    </dl>
 		        <div class = "see-more"><%= link_to "Ver mais", :controller => "more", :action => "index", :id => "4"%></div>
 			</div>	
-			</div>		
+		</div>
 	    <div class="four columns">
 	      <div class="title"> Sociedade </div>
 	      <div class="content">
+	      	<dl class="nice vertical tabs">
 		      	<% @sociedade.each do |news| %>
-			        <ul>
-			        	<li>
-			        		<%= link_to news.title.html_safe, news.url.html_safe %>
-			        	</li>
-			        </ul>
+			        <dd><a href="<%= news.url.html_safe %>"><%= news.title.html_safe %></a></dd>
 		        <%end%>
+		    </dl>
 		         <div class = "see-more"><%= link_to "Ver mais", :controller => "more", :action => "index", :id => "5"%></div>
 			</div>			
 	  </div>

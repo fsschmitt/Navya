@@ -98,3 +98,22 @@ table{
 .see-more a{
 	color:#00af50;
 }
+
+.four {
+	background: rgba(0, 0, 0, 0.1);
+	min-height:450px;
+}
+
+
+.nice.tabs.vertical dd a.news-text{
+	background: rgba(0, 0, 0, 0.1);
+}
+
+.nice.tabs.vertical dd a.news-text.active{
+	background: rgba(0, 0, 0, 0.1);
+	color:black;
+	font-weight: normal;
+	padding:none;
+	margin:none;
+	border:none;
+}

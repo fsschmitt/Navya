@@ -13,14 +13,14 @@
 	</tr>
 </table>
 
-
 <div class="title"><%= @category %></div>
 <div>
 	<dl class="nice vertical tabs">
 		<% if @news.count != 0 %>
 			
 			<% @news.each do |news| %>
-			<dd><a href="<%= news.url.html_safe %>"><%= news.title %></a></dd>
+			<dd id ="<%= news.id%>" class="news-title"><a ><%= news.title.html_safe %></a></dd>
+			<dd id="<%= news.id%>-content" class="news-content"><a class="news-text" href="<%= news.url.html_safe %>"><%= news.text.html_safe %></a></dd>
 			<% end %>
 			
 		<% else %>
