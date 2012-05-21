@@ -1,12 +1,13 @@
 <div class="tab">
 	<ul class="breadcrumbs">
 		<li <%= "class=current" unless params[:id] != nil %>><%= link_to "Home", :controller => "home", :action => "index"%></li>
-		<li <%= "class=current" unless params[:id] != "1" %>><%= link_to "Economia e Politica", :controller => "more", :action => "index", :id => "1"%></li>
+		<li <%= "class=current" unless params[:id] != "1" %>><%= link_to "Economia e Política", :controller => "more", :action => "index", :id => "1"%></li>
 		<li <%= "class=current" unless params[:id] != "2" %>><%= link_to "Desporto", :controller => "more", :action => "index", :id => "2"%></li>
 		<li <%= "class=current" unless params[:id] != "3" %>><%= link_to "Cultura e Lazer", :controller => "more", :action => "index", :id => "3"%></li>
 		<li <%= "class=current" unless params[:id] != "4" %>><%= link_to "Ciências e Tecnologia", :controller => "more", :action => "index", :id => "4"%></li>
 		<li <%= "class=current" unless params[:id] != "5" %>><%= link_to "Sociedade", :controller => "more", :action => "index", :id => "5"%></li>
 		<li><%= link_to "X", :controller => "home", :action => "populate"%></li>
+		<li><%= link_to "Y", :controller => "home", :action => "retrainmodel"%></li>
 		<div class="logo">Navya</div>
 	</ul>
 </div>

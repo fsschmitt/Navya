@@ -3,6 +3,8 @@ Navya::Application.routes.draw do
 
   get "more/index"
   get "home/populate"
+  get "home/retrainmodel"
+    get "home/addToTrainingSet"
 
   root :to => "home#index"
 

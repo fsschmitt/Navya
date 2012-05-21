@@ -49,7 +49,7 @@ public class PrepareNew {
 			out.write("@ATTRIBUTE " + data.word + " REAL\n");
 		}
 
-		out.write("\n@ATTRIBUTE class 	{'Economia e Politica', 'Desporto', 'Cultura e Lazer', 'Ciencia e Tecnologia', 'Sociedade'}\n\n");
+		out.write("\n@ATTRIBUTE class 	{'EconomiaePolitica', 'Desporto', 'CulturaeLazer', 'CienciaeTecnologia', 'Sociedade'}\n\n");
 
 		out.write("@DATA\n");
 
@@ -126,7 +126,7 @@ public class PrepareNew {
 
 	private static int[] classifyNews() throws Exception {
 		ObjectInputStream ois = new ObjectInputStream(
-				new FileInputStream("nb.model"));
+				new FileInputStream("smo.model"));
 		Classifier cls = (Classifier) ois.readObject();
 		ois.close();
 		// TODO Auto-generated method stub

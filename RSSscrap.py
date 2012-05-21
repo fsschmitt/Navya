@@ -39,9 +39,9 @@ getNews()
 
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoCultura?format=xml').read())
 val = 1;
-newpath = r'Noticias/Cultura e Lazer/'
+newpath = r'Noticias/CulturaeLazer/'
 if not os.path.exists(newpath): os.makedirs(newpath)
-newpath_string = 'Noticias/Cultura e Lazer/'
+newpath_string = 'Noticias/CulturaeLazer/'
 
 getNews()
 
@@ -49,21 +49,13 @@ soup = BeautifulSoup(urllib2.urlopen('http://feeds.jn.pt/JN-Cultura').read())
 
 getNews()
 
-soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoSociedade').read())
-
-getNews()
-
-soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoCiencias').read())
-
-getNews()
-
 #POLITICA E ECONOMIA
 
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoPolitica?format=xml').read())
 
-newpath = r'Noticias/Economia e Politica/'
+newpath = r'Noticias/EconomiaePolitica/'
 if not os.path.exists(newpath): os.makedirs(newpath)
-newpath_string = 'Noticias/Economia e Politica/'
+newpath_string = 'Noticias/EconomiaePolitica/'
 
 getNews()
 
@@ -71,15 +63,32 @@ soup = BeautifulSoup(urllib2.urlopen('http://feeds.jn.pt/JN-Politica').read())
 
 getNews()
 
+soup = BeautifulSoup(urllib2.urlopen('http://feeds.jn.pt/JN-Economia').read())
+
+getNews()
+
+soup = BeautifulSoup(urllib2.urlopen('http://economico.sapo.pt/rss/politica.html').read())
+
+getNews()
+
+soup = BeautifulSoup(urllib2.urlopen('http://economico.sapo.pt/rss/economia.html').read())
+
+getNews()
+
+soup = BeautifulSoup(urllib2.urlopen('http://economico.sapo.pt/rss/mercados.html').read())
+
+getNews()
+
+
 
 #TECNOLOGIA E CIENCIA
 val = 1
 
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoTecnologia').read())
 
-newpath = r'Noticias/Ciencia e Tecnologia/'
+newpath = r'Noticias/CienciaeTecnologia/'
 if not os.path.exists(newpath): os.makedirs(newpath)
-newpath_string = 'Noticias/Ciencia e Tecnologia/'
+newpath_string = 'Noticias/CienciaeTecnologia/'
 
 getNews()
 
@@ -87,9 +96,10 @@ soup = BeautifulSoup(urllib2.urlopen('http://feeds.jn.pt/JN-Tecnologia').read())
 
 getNews()
 
-soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoTecnologia').read())
+soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoCiencias').read())
 
 getNews()
+
 
 #SOCIEDADE
 val = 1

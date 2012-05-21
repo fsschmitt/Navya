@@ -18,8 +18,8 @@ def getNews() :
 	return
 
 val = 1
-newpath = r'Noticias/'
-newpath_string = 'Noticias/'
+newpath = r'NoticiasNovas/'
+newpath_string = 'NoticiasNovas/'
 if not os.path.exists(newpath): os.makedirs(newpath)
 
 

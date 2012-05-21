@@ -15,6 +15,10 @@
 import java.io.*;
 import java.util.*;
 
+import weka.classifiers.Classifier;
+import weka.classifiers.functions.SMO;
+import weka.core.Instances;
+
 public class WordCount {
 
    static ArrayList<TextReader> in;   // An input stream for reading the input file.
@@ -62,7 +66,7 @@ static class CountCompare implements Comparator {
 
 
    @SuppressWarnings({ "rawtypes", "unchecked" })
-public static void main(String[] args) throws IOException{
+public static void main(String[] args) throws Exception{
          // The program opens the input and output files.  It reads
          // words from the input file into a TreeMap, in which 
          // they are sorted by alphabetical order.  The words
@@ -163,7 +167,7 @@ public static void main(String[] args) throws IOException{
          out.write("@ATTRIBUTE "+ data.word + " REAL\n");
       }
       
-      out.write("\n@ATTRIBUTE class 	{'Economia e Politica', 'Desporto', 'Cultura e Lazer', 'Ciencia e Tecnologia', 'Sociedade'}\n\n");
+      out.write("\n@ATTRIBUTE class 	{'EconomiaePolitica', 'Desporto', 'CulturaeLazer', 'CienciaeTecnologia', 'Sociedade'}\n\n");
       
       out.write("@DATA\n");
       
@@ -202,6 +206,23 @@ public static void main(String[] args) throws IOException{
       out.close();
       
       System.out.println(wordsList.size() + " distinct words were found.");
+      
+   // create J48
+      Classifier cls = new SMO();
+      
+      // train
+      Instances inst = new Instances(
+                         new BufferedReader(
+                           new FileReader("out.arff")));
+      inst.setClassIndex(inst.numAttributes() - 1);
+      cls.buildClassifier(inst);
+      
+      // serialize model
+      ObjectOutputStream oos = new ObjectOutputStream(
+                                 new FileOutputStream("smo.model"));
+      oos.writeObject(cls);
+      oos.flush();
+      oos.close();
       
    } // end main()
    
