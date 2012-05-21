@@ -294,6 +294,7 @@ lugar
 luz
 líder
 m
+madrugada
 maio
 maior
 mais
@@ -323,6 +324,7 @@ muito
 mundial
 mundo
 munique
+mês
 música
 músico
 n
@@ -450,7 +452,6 @@ quer
 questão
 quinta
 quot
-r
 receber
 recebeu
 rede

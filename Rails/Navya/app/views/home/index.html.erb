@@ -17,7 +17,7 @@
 	<div class="container">
 	  <div class="row">
 	    <div class="four columns">
-	      <div class="title">Economia e Política</div>
+	      <div class="title"><%= link_to "Economia e Política", :controller => "more", :action => "index", :id => "1"%></div>
 	    	<div class="content">
 	    		<dl class="nice vertical tabs">
 		      	<% @economia.each do |news| %>
@@ -28,7 +28,7 @@
 			</div>			
 	    </div>
 	    <div class="four columns">
-	      <div class="title">Desporto</div>
+	      <div class="title"><%= link_to "Desporto", :controller => "more", :action => "index", :id => "2"%></div>
 	      <div class="content">
 	      	<dl class="nice vertical tabs">
 		      	<% @desporto.each do |news| %>
@@ -39,7 +39,7 @@
 			</div>			
 	    </div>
 	    <div class="four columns">
-	      <div class="title">Cultura e Lazer</div>
+	      <div class="title"><%= link_to "Cultura e Lazer", :controller => "more", :action => "index", :id => "3"%></div>
 	      <div class="content">
 	      	<dl class="nice vertical tabs">
 		      	<% @cultura_lazer.each do |news| %>
@@ -53,7 +53,7 @@
 
 	  <div class="row">
 	  	<div class="four columns">
-	      <div class="title">Ciências e Tecnologia</div>
+	      <div class="title"><%= link_to "Ciências e Tecnologia", :controller => "more", :action => "index", :id => "4"%></div>
 	     <div class="content">
 	     	<dl class="nice vertical tabs">
 		      	<% @ciencias_tecnologia.each do |news| %>
@@ -64,7 +64,7 @@
 			</div>	
 		</div>
 	    <div class="four columns">
-	      <div class="title"> Sociedade </div>
+	      <div class="title"> <%= link_to "Sociedade", :controller => "more", :action => "index", :id => "5"%> </div>
 	      <div class="content">
 	      	<dl class="nice vertical tabs">
 		      	<% @sociedade.each do |news| %>
