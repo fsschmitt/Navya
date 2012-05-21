@@ -29,9 +29,6 @@ getNews()
 soup = BeautifulSoup(urllib2.urlopen('http://noticias.sapo.pt/rss/news/').read())
 getNews()
 
-soup = BeautifulSoup(urllib2.urlopen('http://feeds.jn.pt/JN-Destaques/').read())
-getNews()
-
 soup = BeautifulSoup(urllib2.urlopen('http://sol.sapo.pt/rss/').read())
 getNews()
 
@@ -42,12 +39,6 @@ soup = BeautifulSoup(urllib2.urlopen('http://feeds.jn.pt/JN-Desporto').read())
 getNews()
 
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.jn.pt/JN-Cultura').read())
-getNews()
-
-soup = BeautifulSoup(urllib2.urlopen('http://feeds.jn.pt/JN-Cultura').read())
-getNews()
-
-soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoTecnologia').read())
 getNews()
 
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.jn.pt/JN-Tecnologia').read())

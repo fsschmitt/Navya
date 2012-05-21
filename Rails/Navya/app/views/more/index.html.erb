@@ -20,7 +20,8 @@
 		<% if @news.count != 0 %>
 			
 			<% @news.each do |news| %>
-			<dd><a href="<%= news.url.html_safe %>"><%= news.title %></a></dd>
+			<dd><a href="<%= news.url.html_safe %>"><%= news.title %></a><div class="report" id="<%= news.id %>" align="right">Report</div></dd>
+
 			<% end %>
 			
 		<% else %>
@@ -29,4 +30,18 @@
 
 		<% end %>
 	</dl>
+</div>
+
+<div id="myModal" class="reveal-modal">
+	<br/>
+     <h2>Escolha a nova categoria!</h2>
+     <select id="standardDropdown">
+							<option>Economia e Política</option>
+							<option>Desporto</option>
+							<option>Cultura e Lazer</option>
+							<option>Ciência e Tecnologia</option>
+							<option>Sociedade</option>
+						</select>
+
+     <a class="close-reveal-modal"><div class="blue button" onclick="save()">Guardar</div></a>
 </div>

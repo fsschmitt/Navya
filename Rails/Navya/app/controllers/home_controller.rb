@@ -18,4 +18,44 @@ class HomeController < ApplicationController
   	redirect_to "#"
   end
 
+  
+  def addToTrainingSet
+    @id = params[:id]
+    @categoria = params[:cat]
+
+    @new = News.find(@id)
+
+    @new.update_attribute("category", @categoria)
+
+    @direct = "";
+    if @categoria == "1"
+      @direct = "EconomiaePolitica/"
+    elsif @categoria == "2"
+      @direct = "Desporto/"
+    elsif @categoria == "3"
+      @direct = "CulturaeLazer/"
+    elsif @categoria == "4"
+      @direct = "CienciaeTecnologia/"
+    elsif @categoria == "5"
+      @direct = "Sociedade/"
+    end
+
+
+    File.atomic_write("db/fixtures/Noticias/" + @direct + @new.title + ".txt") do |file|
+      file.write(@new.title+"\n")
+      file.write(@new.url+"\n")
+      file.write(@new.text+"\n")
+    end
+
+    redirect_to "#"
+  end
+
+
+  def retrainmodel
+
+    `cd db/fixtures; java -jar BuildModel.jar Noticias out.arff 0.01 .80;`
+
+    redirect_to "#"
+  end
+
 end
