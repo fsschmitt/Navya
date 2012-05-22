@@ -20,7 +20,7 @@ def getNews() :
 val = 1
 newpath = r'NoticiasNovas/'
 newpath_string = 'NoticiasNovas/'
-if not os.path.exists(newpath): os.makedirs(newpath)
+os.makedirs(newpath)
 
 
 soup = BeautifulSoup(urllib2.urlopen('http://feeds.feedburner.com/PublicoRSS?format=xml').read())
