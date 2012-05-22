@@ -8,8 +8,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id ="container">
+<div id ="header">
 <%= render 'shared/header' %>
+</div>
+<div id="body">
 <%= yield %>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+</div>
 <%= render 'shared/footer' %>
+</div>
 </body>
 </html>

@@ -28,7 +28,9 @@
 				<a class="news-text" href="<%= news.url.html_safe %>">
 					<%= news.text.html_safe %>
 				</a>
+				<% if user_signed_in? %>
 				<button class="report" id="<%= news.id %>" align="right">Report</button>
+				<%end%>
 			</dd>
 			<% end %>
 			

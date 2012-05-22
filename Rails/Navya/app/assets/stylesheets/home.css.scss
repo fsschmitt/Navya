@@ -10,8 +10,27 @@ ul, ol {
 margin-bottom: 0px;
 }
 
-body{
-	background-color: #F4F4F4;
+html,
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+
+#container {
+   min-height:100%;
+   position:relative;
+}
+
+#body {
+   padding-bottom:40px;   /* Height of the footer */
+}
+
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:40px;   /* Height of the footer */
 }
 
 table tbody tr td {

@@ -1,7 +1,14 @@
+<div id="footer">
 <div class="tab">
 	<ul class="breadcrumbs">
+		<% if user_signed_in? %>
 		<li><%= link_to "Popular Base de Dados", :controller => "home", :action => "populate"%></li>
 		<li><%= link_to "Retreinar Modelo", :controller => "home", :action => "retrainmodel"%></li>
+		<li><%= link_to "Logout", destroy_user_session_path, :method => :delete%></li>
+		<% else %>
+		<li><%= link_to "Login", user_session_path%></li>
+		<% end %>
 		<div class="logo">Paradigmas de Programação</div>
 	</ul>
+</div>
 </div>
