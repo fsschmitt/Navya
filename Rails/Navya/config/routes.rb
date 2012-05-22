@@ -6,9 +6,11 @@ Navya::Application.routes.draw do
   get "more/index"
   get "home/populate"
   get "home/retrainmodel"
-    get "home/addToTrainingSet"
+  get "home/addToTrainingSet"
 
   root :to => "home#index"
+
+  get "more/index?id=:id" => "more#index",  :as => "more_index"
 
 
   # The priority is based upon order of creation:
