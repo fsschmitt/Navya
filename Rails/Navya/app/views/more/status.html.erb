@@ -1,0 +1,25 @@
+<table class="header-container">
+	<tr>
+		<td class="header-side">
+			<img class="leaves" src="../assets/leaves.png"/>
+		</td>
+		<td class="header-text-container">
+			<div class="header">Navya</div>
+			<div class="subheader">notícias num só lugar</div>
+		</td>
+		<td class="header-side">
+			<!--<img class="rss" src="assets/rss.png"/>-->
+		</td>
+	</tr>
+</table>
+
+<div class ="main-container">
+	<div class="container">
+	  <div class="row">
+	    <div class="eight columns centered">
+	    	<b>Resultados: </b>
+	    	<br/>
+	    	<%= @stats.html_safe %>
+	    </div>
+	</div>
+</div>

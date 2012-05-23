@@ -4,9 +4,11 @@ Navya::Application.routes.draw do
   resources :news
 
   get "more/index"
+  get "more/status"
   get "home/populate"
   get "home/retrainmodel"
   get "home/addToTrainingSet"
+  get "home/modelstatus"
 
   root :to => "home#index"
 

@@ -58,4 +58,13 @@ class HomeController < ApplicationController
     redirect_to "#"
   end
 
+  def modelstatus
+
+    @stats = `cd db/fixtures; python RSSscrap.py; java -jar StatusModel.jar; cd Noticias2; rm -rf *`
+    #@stats = `cd db/fixtures; python RSSscrap.py; java -jar StatusModel.jar;`
+    #@stats = `cd db/fixtures; java -jar StatusModel.jar;`
+    logger.info(@stats)
+    render "/more/status.html"
+  end
+
 end
