@@ -15,6 +15,6 @@ class MoreController < ApplicationController
   		@category = "Sociedade"
   	end
 
-	@news = News.find(:all,:conditions => ["category = ?", params[:id]], :order => 'created_at')
+	@news = News.find(:all,:conditions => ["category = ?", params[:id]], :order => 'created_at DESC')
   end
 end

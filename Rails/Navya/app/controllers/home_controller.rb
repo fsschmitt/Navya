@@ -3,17 +3,17 @@ class HomeController < ApplicationController
   	@ls = `ls`
   	@economy_politics= ["news1","news2","news3","news4","news5","news 6"]
 
-  	@economia = News.find(:all,:conditions => ["category = ?", 1], :limit => 5, :order => 'created_at')
-  	@desporto = News.find(:all,:conditions => ["category = ?", 2], :limit => 5, :order => 'created_at')
-  	@cultura_lazer = News.find(:all,:conditions => ["category = ?", 3], :limit => 5, :order => 'created_at')
-  	@ciencias_tecnologia = News.find(:all,:conditions => ["category = ?", 4], :limit => 5, :order => 'created_at')
-  	@sociedade = News.find(:all,:conditions => ["category = ?", 5], :limit => 5, :order => 'created_at')
+  	@economia = News.find(:all,:conditions => ["category = ?", 1], :limit => 5, :order => 'created_at DESC')
+  	@desporto = News.find(:all,:conditions => ["category = ?", 2], :limit => 5, :order => 'created_at DESC' )
+  	@cultura_lazer = News.find(:all,:conditions => ["category = ?", 3], :limit => 5, :order => 'created_at DESC')
+  	@ciencias_tecnologia = News.find(:all,:conditions => ["category = ?", 4], :limit => 5, :order => 'created_at DESC')
+  	@sociedade = News.find(:all,:conditions => ["category = ?", 5], :limit => 5, :order => 'created_at DESC')
 
   end
 
   def populate
     
-  	`cd db/fixtures; python RSSReader.py;java -jar Classifier.jar;rake db:seed_fu`
+  	`cd db/fixtures; rm -rf NoticiasNovas; python RSSReader.py;java -jar Classifier.jar;rake db:seed_fu`
 
   	redirect_to "#"
   end
