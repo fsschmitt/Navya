@@ -322,12 +322,20 @@ static void readWords(TextReader inStream, Map words) {
         // the program is terminated.
 
       try {
+    	  boolean flag = false;
          while (true) { 
+        	 
             while (! inStream.eof() && ! Character.isLetter(inStream.peek()))
                inStream.getAnyChar();  // Skip past non-letters.
             if (inStream.eof())
                break;  // Exit because there is no more data to read.
             String word = inStream.getAlpha();  // Read one word from stream.
+            
+            if(word.equals("urlppro"))
+            	flag = !flag;
+            
+            if(flag) continue;
+            
             word = word.toLowerCase();
             WordData data = (WordData)words.get(word);
                 // Check whether the word is already in the Map.  If not,
@@ -338,6 +346,7 @@ static void readWords(TextReader inStream, Map words) {
                   // We have not encountered word before.  Add it to
                   // the map.  The initial frequency count is
                   // automatically set to 1 by the WordData constructor.
+            	
                words.put(word, new WordData(word) );
             }
             else {

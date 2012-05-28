@@ -1,14 +1,14 @@
 News.seed do |n|
 n.title = "Deutsche Bank propõe moeda paralela para a Grécia: o geuro"
 n.url = "http://feedproxy.google.com/~r/PublicoRSS/~3/xzKEGMSbGns/deutsche-bank-propoe-moeda-paralela-para-a-grecia-o-geuro-1547123"
-n.category = 5
+n.category = 1
 n.text = "O Deutsche Bank, maior banco privado alemão, propôs hoje a introdução de uma moela paralela ao euro na Grécia, caso os adversários das medidas de austeridade ganhem as eleições legislativas de 17 de Junho."
 end
 
 News.seed do |n|
 n.title = "<i>Fast food</i> está a ser rapidamente devorado pela crise"
 n.url = "http://feedproxy.google.com/~r/PublicoRSS/~3/hWcEFsh8j6M/fast-food-esta-a-ser-rapidamente-devorado-pela-crise-1547117"
-n.category = 4
+n.category = 1
 n.text = "O grupo Ibersol, que detém algumas das maiores cadeias de restauração em Portugal, teve uma queda abrupta de 81% nos lucros no primeiro trimestre e já foi obrigado a fechar três estabelecimentos."
 end
 
@@ -22,7 +22,7 @@ end
 News.seed do |n|
 n.title = "Primeiro voo privado está em órbita em direcção à ISS"
 n.url = "http://feedproxy.google.com/~r/PublicoRSS/~3/GhHeS4Zg0pw/capsula-naotripulada-dragon-ja-esta-em-orbita-em-direccao-a-iss-1547113"
-n.category = 5
+n.category = 4
 n.text = "A cápsula não-tripulada Dragon, da empresa americana SpaceX, já está na órbita terrestre. O engenho entrou em órbita cerca de dez minutos após o lançamento a partir da Florida (EUA) com a ajuda do foguetão Falcon 9 naquele que é o primeiro voo de um vaivém privado em direcção à Estação Espacial Internacional (ISS, na sigla em inglês), indicou o centro de controlo da SpaceX."
 end
 
@@ -36,7 +36,7 @@ end
 News.seed do |n|
 n.title = "Lucros da Mota-Engil crescem 45% para 4,5 milhões de euros"
 n.url = "http://feedproxy.google.com/~r/PublicoRSS/~3/QbXzdkdfK1k/lucros-da-motaengil-crescem-45-para-45-milhoes-de-euros-1547114"
-n.category = 5
+n.category = 1
 n.text = "A construtora registou uma subida de 11,6% no volume de negócios no primeiro trimestre de 2012. Actividade internacional já vale 55% da facturação."
 end
 
@@ -50,14 +50,14 @@ end
 News.seed do |n|
 n.title = "Hugo Chávez aprova 175 milhões de euros para dar portáteis portugueses nas escolas"
 n.url = "http://feedproxy.google.com/~r/PublicoRSS/~3/3ISfSE7-TO8/hugo-chavez-aprova-175-milhoes-de-euros-para-dar-portateis-portugueses-nas-escolas-1547110"
-n.category = 5
+n.category = 1
 n.text = "O presidente da Venezuela, Hugo Chávez, anunciou nesta terça-feira que aprovou uma verba de 957,3 milhões de bolívares fortes (175 milhões de euros) para dar aos alunos dos quinto e sexto anos os computadores Canaima (nome local dos Magalhães)."
 end
 
 News.seed do |n|
 n.title = "Espanha com recessão de 1,5% e desemprego acima de 25% este ano"
 n.url = "http://feedproxy.google.com/~r/PublicoRSS/~3/_vntLjK0u3s/espanha-com-recessao-de-15-e-desemprego-acima-de-25-este-ano-1547107"
-n.category = 5
+n.category = 1
 n.text = "A economia espanhola vai contrair pelo menos 1,5 por cento este ano e o desemprego vai ultrapassar os 25 por cento, sendo necessárias mais medidas de austeridade, incluindo um aumento do IVA, segundo a OCDE."
 end
 
@@ -78,14 +78,14 @@ end
 News.seed do |n|
 n.title = "Portugal vai ter de adoptar mais medidas de austeridade para cumprir metas da <i>troika</i>"
 n.url = "http://feedproxy.google.com/~r/PublicoRSS/~3/7S0uNiPNObo/portugal-vai-ter-de-adoptar-mais-medidas-de-austeridade-para-cumprir-metas-da-troika-1547103"
-n.category = 5
+n.category = 1
 n.text = "O Governo português vai ter de adoptar novas medidas de austeridade para cumprir as suas metas orçamentais, prevê a Organização para a Cooperação e Desenvolvimento Económico (OCDE)."
 end
 
 News.seed do |n|
 n.title = "Cinco mortos em explosão em Damasco"
 n.url = "http://feedproxy.google.com/~r/PublicoRSS/~3/_fx-Zr1EG74/cinco-mortos-em-explosao-em-damasco--1547100"
-n.category = 5
+n.category = 4
 n.text = "Cinco pessoas morreram nesta terça-feira num atentado num restaurante em Damasco, capital da Síria, num bairro que tem sido palco de confrontos e de protestos a exigir o fim do regime do Presidente Bashar al-Assad."
 end
 
@@ -106,14 +106,14 @@ end
 News.seed do |n|
 n.title = "Encontro de Marionetas transforma Montemor-o-Novo na &quot;cidade dos bonecos&quot;"
 n.url = "http://noticias.sapo.pt/infolocal/artigo/1244602.html"
-n.category = 1
+n.category = 4
 n.text = "Onze companhias de teatro de marionetas, nacionais e estrangeiras,  vão dar “vida” aos seus “bonecos” em Montemor-o-Novo, entre 29 de maio e  10 de junho, num encontro que tem como “palcos” vários locais da  cidade"
 end
 
 News.seed do |n|
 n.title = "Comerciantes da Costa da Caparica protestam contra cancela que corta rua de acesso à praia"
 n.url = "http://noticias.sapo.pt/infolocal/artigo/1244601.html"
-n.category = 1
+n.category = 5
 n.text = "Cerca de 40 comerciantes protestaram hoje, na Costa da Caparica,  contra uma cancela que a Câmara de Almada quer pôr à entrada de uma rua  que dá acesso à praia, a restaurantes e bares e a parques de  estacionamento"
 end
 
@@ -134,7 +134,7 @@ end
 News.seed do |n|
 n.title = "Monti é recebido com vaias na zona do terramoto"
 n.url = "http://diariodigital.sapo.pt/news.asp?id_news=574028"
-n.category = 1
+n.category = 2
 n.text = "O primeiro-ministro de Itália, Mario Monti, foi recebido esta terça-feira com algumas vaias na sua chegada a Sant´Agostino, uma das localidades mais afectadas pelo terramoto de 5,9 graus na escala de Richter que castigou o norte do país na madrugada de domingo"
 end
 
@@ -155,14 +155,14 @@ end
 News.seed do |n|
 n.title = "Gisele Bündchen grávida?"
 n.url = "http://fama.sapo.pt/noticia/gisele-bundchen-gravida-2"
-n.category = 1
+n.category = 4
 n.text = "Gisele Bündchen poderá estar à espera do seu segundo filho, de acordo com notícias da imprensa brasileira"
 end
 
 News.seed do |n|
 n.title = "Comerciantes contra cancela que corta rua de acesso à praia"
 n.url = "http://diariodigital.sapo.pt/news.asp?id_news=574027"
-n.category = 1
+n.category = 4
 n.text = "Cerca de 40 comerciantes protestaram hoje, na Costa da Caparica, contra uma cancela que a Câmara de Almada quer pôr à entrada de uma rua que dá acesso à praia, a restaurantes e bares e a parques de estacionamento"
 end
 
@@ -183,14 +183,14 @@ end
 News.seed do |n|
 n.title = "Brincadeira com amigos deixa noivo nos Cuidados Intensivos"
 n.url = "http://sol.sapo.pt/inicio/Vida/Interior.aspx?content_id=50019"
-n.category = 1
+n.category = 4
 n.text = "Aquele que se esperava ser o dia mais feliz das suas vidas acabou em tragédia. O insólito aconteceu na cidade de Pruvia, nas Astúrias, quando um jovem recém-casado foi erguido nos braços de amigos e familiares e projectado pelos ares em jeito de celebração e alegria"
 end
 
 News.seed do |n|
 n.title = "Duas mil peças falsificadas chinesas encontradas em aviões militares dos EUA"
 n.url = "http://diariodigital.sapo.pt/news.asp?id_news=574026"
-n.category = 1
+n.category = 4
 n.text = "Um grande número de aparelhos electrónicos chineses falsificados está a ser usados em equipamentos militares americanos. A informação foi divulgada num relatório do Senado americano"
 end
 
@@ -204,14 +204,14 @@ end
 News.seed do |n|
 n.title = "OCDE prevê recessão em Portugal até 'meados de 2013'"
 n.url = "http://sol.sapo.pt/inicio/Economia/Interior.aspx?content_id=50018"
-n.category = 1
+n.category = 5
 n.text = "A economia portuguesa vai cair 3,2 por cento este ano e 0,9 por cento no próximo, segundo previsões económicas hoje divulgadas pelo Organização para a Cooperação e Desenvolvimento Económico (OCDE)"
 end
 
 News.seed do |n|
 n.title = "Comerciantes protestam contra cancela que corta rua de acesso à praia"
 n.url = "http://noticias.sapo.pt/nacional/artigo/comerciantes-protestam-contra-cancela-que-corta-rua-de-acesso-a-praia_14359564.html"
-n.category = 1
+n.category = 5
 n.text = "Cerca de 40 comerciantes protestaram hoje, na Costa da Caparica, contra uma cancela que a Câmara de Almada quer pôr à entrada de uma rua que dá acesso à praia, a restaurantes e bares e a parques de estacionamento"
 end
 
@@ -225,7 +225,7 @@ end
 News.seed do |n|
 n.title = "Ministra diz que processo para aumentar o preço da água está em curso e visa evitar colapso financeiro do sistema"
 n.url = "http://sicnoticias.sapo.pt/economia/article1562175.ece"
-n.category = 1
+n.category = 5
 n.text = "A ministra do Ambiente garante que já está em marcha o processo para aumentar o preço da água. A medida deve entrar em vigor no próximo ano. Assunção Cristas defende que sem uma subida dos preços, há o risco de colapso financeiro do sistema"
 end
 
@@ -246,14 +246,14 @@ end
 News.seed do |n|
 n.title = "Brincadeira com amigos deixa noivo nos Cuidados Intensivos"
 n.url = "http://www.sol.pt/inicio/Vida/Interior.aspx?content_id=50019"
-n.category = 1
+n.category = 4
 n.text = "Aquele que se esperava ser o dia mais feliz das suas vidas acabou em tragédia. O insólito aconteceu na cidade de Pruvia, nas Astúrias, quando um jovem recém-casado foi erguido nos braços de amigos e familiares.."
 end
 
 News.seed do |n|
 n.title = "OCDE prevê recessão em Portugal até 'meados de 2013'"
 n.url = "http://www.sol.pt/inicio/Economia/Interior.aspx?content_id=50018"
-n.category = 1
+n.category = 5
 n.text = "A economia portuguesa vai cair 3,2 por cento este ano e 0,9 por cento no próximo, segundo previsões económicas hoje divulgadas pelo Organização para a Cooperação e Desenvolvimento Económico (OCDE)"
 end
 
@@ -267,7 +267,7 @@ end
 News.seed do |n|
 n.title = "Brasil corta imposto sobre veículos e incentiva crédito para consumo"
 n.url = "http://www.sol.pt/inicio/Internacional/Interior.aspx?content_id=50016"
-n.category = 1
+n.category = 5
 n.text = "O governo brasileiro anunciou na segunda-feira uma redução da carga tributária que incide sobre a venda de veículos, como forma de estímulo à indústria automobilística nacional, além de outras medidas.."
 end
 
@@ -309,7 +309,7 @@ end
 News.seed do |n|
 n.title = "Ministra acredita que 'explicações e abertura' impedirão desclassificação do Douro"
 n.url = "http://www.sol.pt/inicio/Sociedade/Interior.aspx?content_id=50010"
-n.category = 5
+n.category = 1
 n.text = "A ministra da Agricultura disse-se hoje «convencida» de que as explicações do Governo quanto ao processo de construção da barragem de Foz Tua impedirão a UNESCO de retirar ao Alto Douro Vinhateiro a classificação.."
 end
 
@@ -337,14 +337,14 @@ end
 News.seed do |n|
 n.title = "Microsoft prevê vender 350 milhões de dispositivos com Windows 7 em 2012"
 n.url = "http://www.sol.pt/inicio/Tecnologia/Interior.aspx?content_id=50006"
-n.category = 4
+n.category = 1
 n.text = " 		A Microsoft prevê vender até ao final deste ano cerca de 350 milhões de dispositivos equipados com o sistema operativo Windows 7"
 end
 
 News.seed do |n|
 n.title = "Portugueses que vão assistir aos Jogos devem vacinar-se contra o sarampo"
 n.url = "http://www.sol.pt/inicio/Sociedade/Interior.aspx?content_id=50005"
-n.category = 5
+n.category = 1
 n.text = "Os portugueses que forem assistir Jogos Olímpicos e aos Jogos Paralímpicos de Londres 2012 devem vacinar-se contra o sarampo, recomendou hoje, em comunicado, a Direcção-Geral de Saúde (DGS)"
 end
 
@@ -365,7 +365,7 @@ end
 News.seed do |n|
 n.title = "STCP anuncia equilíbrio operacional pela primeira vez em 40 anos"
 n.url = "http://www.sol.pt/inicio/Economia/Interior.aspx?content_id=50002"
-n.category = 5
+n.category = 1
 n.text = "A administração da Sociedade de Transportes Colectivos do Porto (STCP) anunciou hoje que a empresa atingiu o «equilíbrio operacional», pela primeira vez desde a década de 1970"
 end
 
@@ -379,14 +379,14 @@ end
 News.seed do |n|
 n.title = "Revista de imprensa: 22 de Maio"
 n.url = "http://www.sol.pt/inicio/Sociedade/Interior.aspx?content_id=50000"
-n.category = 5
+n.category = 1
 n.text = "O alerta do Conselho de Finanças Públicas ao Governo e as consequências da crise na vida dos portugueses são hoje assuntos em destaque nas primeiras páginas dos jornais portugueses"
 end
 
 News.seed do |n|
 n.title = "Cristas quer separar e privatizar resíduos até ao final do ano"
 n.url = "http://www.sol.pt/inicio/Politica/Interior.aspx?content_id=49999"
-n.category = 1
+n.category = 5
 n.text = "A ministra da Agricultura, do Mar, do Ambiente e do Ordenamento do Território, Assunção Cristas, admitiu hoje que pretende a separação e privatização da parte dos resíduos da Águas de Portugal «até ao.."
 end
 
@@ -442,7 +442,7 @@ end
 News.seed do |n|
 n.title = "Estações do Metro todas encerradas devido a greve parcial"
 n.url = "http://www.sol.pt/inicio/Sociedade/Interior.aspx?content_id=49991"
-n.category = 5
+n.category = 1
 n.text = "As estações do metro estão todas encerradas devido à greve parcial que os trabalhadores do Metropolitano de Lisboa iniciaram hoje às 5h30, disse à agência Lusa Anabela Carvalheira, da Federação de Sindicatos.."
 end
 
@@ -456,14 +456,14 @@ end
 News.seed do |n|
 n.title = "Crioestaminal suspende filme publicitário"
 n.url = "http://www.sol.pt/inicio/Sociedade/Interior.aspx?content_id=49989"
-n.category = 5
+n.category = 4
 n.text = "A empresa Crioestaminal anunciou hoje, depois de um deputado ter protestado, que suspendeu, há três dias, e a pedido de «muitos» pais, o filme publicitário aos alegados benefícios da recolha das células.."
 end
 
 News.seed do |n|
 n.title = "Eurojust recupera 67 ME de sociedades italianas sediadas na zona franca da Madeira"
 n.url = "http://www.sol.pt/inicio/Internacional/Interior.aspx?content_id=49988"
-n.category = 1
+n.category = 5
 n.text = "A cooperação entre autoridades italianas, a Eurojust e o Ministério Público no Funchal permitiu recuperar 67 milhões de euros no âmbito de uma investigação sobre «crimes de insolvência dolosa e branqueamento.."
 end
 
@@ -484,14 +484,14 @@ end
 News.seed do |n|
 n.title = "Greve de revisores provoca perturbações no serviço urbano de Lisboa esta semana"
 n.url = "http://www.sol.pt/inicio/Sociedade/Interior.aspx?content_id=49984"
-n.category = 5
+n.category = 1
 n.text = "Uma nova greve dos trabalhadores das bilheteiras e revisores da CP &ndash; Comboios de Portugal convocada para 23, 24 e 25 de Maio nos comboios urbanos de Lisboa vai provocar «fortes perturbações» na circulação.."
 end
 
 News.seed do |n|
 n.title = "Nicola Raab: 'Cada produção é uma oferta para o público'"
 n.url = "http://www.sol.pt/inicio/Cultura/Interior.aspx?content_id=49983"
-n.category = 3
+n.category = 4
 n.text = "Nicola Raab, que tem encenado óperas de diversos estilos e épocas - coisas tão diversas como o 'Barbeiro de Sevilha', de Rossini, ou o contemporâneo 'A Flowering Tree', de John Adams -, em todos os continentes.."
 end
 
@@ -533,14 +533,14 @@ end
 News.seed do |n|
 n.title = "Teatro: Funeral de João Miguel Rodrigues realiza-se na terça-feira "
 n.url = "http://www.sol.pt/inicio/Cultura/Interior.aspx?content_id=49977"
-n.category = 3
+n.category = 2
 n.text = "O funeral do actor e encenador João Miguel Rodrigues realiza-se na terça-feira, ao início da tarde, para o cemitério do Alto de S. João, disse à agência Lusa fonte dos Artistas Unidos"
 end
 
 News.seed do |n|
 n.title = "Caso BCP: Carlos Tavares chamado a testemunhar no processo que opõe ex-gestores à CMVM"
 n.url = "http://www.sol.pt/inicio/Sociedade/Interior.aspx?content_id=49976"
-n.category = 5
+n.category = 4
 n.text = "A juíza que preside ao processo de recurso dos antigos gestores do BCP contra a condenação da CMVM aceitou o pedido do advogado de Jardim Gonçalves para que o presidente do supervisor, Carlos Tavares,.."
 end
 
@@ -554,28 +554,28 @@ end
 News.seed do |n|
 n.title = "Av. Liberdade vai perder faixa de rodagem"
 n.url = "http://www.sol.pt/inicio/Sociedade/Interior.aspx?content_id=49974"
-n.category = 5
+n.category = 2
 n.text = "A Avenida da Liberdade vai ter, na sua quase totalidade, apenas duas faixas de rodagem em cada sentido, numa tentativa da câmara de Lisboa de tirar carros daquela zona da cidade, disse hoje o presidente.."
 end
 
 News.seed do |n|
 n.title = "Bordallo Pinheiro produz padre em cerâmica com 1,80 metros"
 n.url = "http://www.sol.pt/inicio/Cultura/Interior.aspx?content_id=49973"
-n.category = 3
+n.category = 4
 n.text = "Um padre, com 1,80 metros de altura, será a primeira peça produzida pelas faianças Bordallo Pinheiro, no âmbito de um conjunto de figuras bordalianas que irão integrar a obra de regeneração urbana das.."
 end
 
 News.seed do |n|
 n.title = "Rock in Rio: Trânsito condicionado e segurança reforçada "
 n.url = "http://www.sol.pt/inicio/Cultura/Interior.aspx?content_id=49972"
-n.category = 3
+n.category = 1
 n.text = "A realização do festival Rock in Rio em Lisboa implicará um plano de segurança e de trânsito com algumas centenas de agentes, mas será um dispositivo discreto, disse hoje o subintendente da PSP Lopes Martins"
 end
 
 News.seed do |n|
 n.title = "EPUL ressarcida pela Câmara em 9ME sem recorrer a tribunal"
 n.url = "http://www.sol.pt/inicio/Economia/Interior.aspx?content_id=49970"
-n.category = 1
+n.category = 4
 n.text = "A Empresa Pública de Urbanização de Lisboa (EPUL) vai ser ressarcida em nove milhões de euros pela câmara lisboeta, pelos projectos de Alcântara-Mar e do Parque Mayer, sem que tivesse de recorrer a tribunal.."
 end
 
@@ -666,21 +666,21 @@ end
 News.seed do |n|
 n.title = "Portugueses que vão assistir aos Jogos Olimpicos devem vacinar-se contra o sarampo"
 n.url = "http://feeds.jn.pt/~r/JN-DESPORTO/~3/Puq7AbB5vKw/story01.htm"
-n.category = 2
+n.category = 1
 n.text = "Os portugueses que forem assistir Jogos Olímpicos e aos Jogos Paralímpicos de Londres 2012 devem vacinar-se contra o sarampo, recomendou hoje, em comunicado, a Direção-Geral de Saúde."
 end
 
 News.seed do |n|
 n.title = "Jessica Augusto corre maratona olímpica e sonha com o ouro"
 n.url = "http://feeds.jn.pt/~r/JN-DESPORTO/~3/lb_eiTt-kkI/story01.htm"
-n.category = 2
+n.category = 4
 n.text = "Jessica Augusto vai cumprir o objetivo de correr a maratona olímpica e confessa que o ouro é um sonho antigo, mas, numa perspetiva mais realista, diz que terminar entre as 15 primeiras em Londres já seria bom."
 end
 
 News.seed do |n|
 n.title = "Portugal falha Londres2012 em 'shell de quatro'"
 n.url = "http://feeds.jn.pt/~r/JN-DESPORTO/~3/No2RmBK5A20/story01.htm"
-n.category = 2
+n.category = 1
 n.text = "A equipa de remadores portugueses, em shell de quatro sem timoneiro (LM4-), falhou, esta segunda-feira, o apuramento para os Jogos Olímpicos Londres2012, ficando-se pelo terceiro lugar nas repescagens da regata de qualificação, em Lucerna, Suíça."
 end
 
@@ -701,14 +701,14 @@ end
 News.seed do |n|
 n.title = "Sporting de Braga tem que vender jogadores, mas também ter qualidade para manter ambição"
 n.url = "http://feeds.jn.pt/~r/JN-DESPORTO/~3/cHx_D30R_Ng/story01.htm"
-n.category = 2
+n.category = 5
 n.text = "O treinador de futebol do Sporting de Braga, Leonardo Jardim, disse, esta segunda-feiras, que apesar do clube ter que vender jogadores para ser viável, tem que ter qualidade para manter a ambição desportiva."
 end
 
 News.seed do |n|
 n.title = "Beckenbauer diz que jogadores do Bayern estão em condições psicológicas 'deploráveis'"
 n.url = "http://feeds.jn.pt/~r/JN-DESPORTO/~3/NSK4RJuggDg/story01.htm"
-n.category = 2
+n.category = 1
 n.text = "O ex-futebolista alemão Franz Beckenbauer considerou que os jogadores do Bayern de Munique convocados para a seleção germânica, adversária de Portugal no Euro2012, vão apresentar-se em condições psicológicas 'deploráveis' devido à derrota na final da Liga dos Campeões."
 end
 
@@ -750,7 +750,7 @@ end
 News.seed do |n|
 n.title = "Multidão ruidosa aguarda jogadores da Académica"
 n.url = "http://feeds.jn.pt/~r/JN-DESPORTO/~3/CTwTxzsX3nw/story01.htm"
-n.category = 2
+n.category = 3
 n.text = "Uma compacta multidão, em festa, aguarda este domingo à noite junto aos Paços do Município de Coimbra a chegada da equipa da Académica para assistir à homenagem da autarquia pela conquista da Taça de Portugal em futebol."
 end
 
@@ -778,7 +778,7 @@ end
 News.seed do |n|
 n.title = "Izmailov fora do onze leonino na Taça de Portugal"
 n.url = "http://feeds.jn.pt/~r/JN-DESPORTO/~3/hdvAilAc-Ts/story01.htm"
-n.category = 2
+n.category = 5
 n.text = "O Sporting não conta com Marat Izmailov no onze inicial para a final da Taça de Portugal. Carrilo vai ser o extremo direito da equipa que entrou em campo para o aquecimento há momentos."
 end
 
@@ -799,35 +799,35 @@ end
 News.seed do |n|
 n.title = "Chelsea é campeão europeu"
 n.url = "http://feeds.jn.pt/~r/JN-DESPORTO/~3/OgeD9oUBpak/story01.htm"
-n.category = 2
+n.category = 3
 n.text = "O Chelsea conquistou este sábado à noite a Liga dos Campeões 2011/12, depois de vencer, no desempate por grandes penalidades, o Bayern de Munique por 4-3, após igualdade a uma bola ao fim de 120 minutos."
 end
 
 News.seed do |n|
 n.title = "Acidente em rali francês provoca a morte a dois espetadores"
 n.url = "http://feeds.jn.pt/~r/JN-DESPORTO/~3/wFL4CeoRGLY/story01.htm"
-n.category = 2
+n.category = 3
 n.text = "Um acidente que ocorreu este sábado num rali do sul de França provocou a morte a duas pessoas e feriu 15 com alguma gravidade, entre as quais crianças, revelaram os bombeiros."
 end
 
 News.seed do |n|
 n.title = "Miguel Oliveira no terceiro lugar da 'grelha' do Grande Prémio de França"
 n.url = "http://feeds.jn.pt/~r/JN-DESPORTO/~3/tTtcJQ-WQxY/story01.htm"
-n.category = 2
+n.category = 3
 n.text = "O português Miguel Oliveira (Suter Honda) vai partir do terceiro lugar da 'grelha' para a corrida de Moto3 do Grande Prémio de França, no domingo, enquanto o espanhol Maverick Vinales (FTR Honda) larga da 'pole position'."
 end
 
 News.seed do |n|
 n.title = "Académica e Sporting só pensam em ganhar"
 n.url = "http://feeds.jn.pt/~r/JN-DESPORTO/~3/eZ8J63qOkcw/story01.htm"
-n.category = 2
+n.category = 5
 n.text = "Pedro Emanuel e Sá Pinto foram claros no objetivo para a final da Taça de Portugal, domingo, no Jamor: Académica e Sporting vão entrar para ganhar 'porque as finais são para isso', adiantaram os dois técnicos na conferência de Imprensa conjunta de antevisão do embate de amanhã."
 end
 
 News.seed do |n|
 n.title = "Manuel José vai sair do al-Ahly devido à instabilidade no Egito"
 n.url = "http://feeds.jn.pt/~r/JN-DESPORTO/~3/iTmR2SPBVPM/story01.htm"
-n.category = 2
+n.category = 1
 n.text = "O treinador português de futebol Manuel José anunciou a sua saída imediata do clube egípcio al-Ahly, alegando a situação difícil que se mantém no país."
 end
 
@@ -981,14 +981,14 @@ end
 News.seed do |n|
 n.title = "Navegue pelo recinto do Optimus Primavera Sound"
 n.url = "http://feeds.jn.pt/~r/JN-CULTURA/~3/cbCuIy7pviY/story01.htm"
-n.category = 3
+n.category = 5
 n.text = "Saiba mais sobre o cartaz, o espaço, os palcos e os horários do Optimus Primavera Sound, festival que decorre no Porto entre 7 e 10 de junho."
 end
 
 News.seed do |n|
 n.title = "Demitiu-se a direção do Instituto do Cinema"
 n.url = "http://feeds.jn.pt/~r/JN-CULTURA/~3/gvnw2DPiToY/story01.htm"
-n.category = 3
+n.category = 4
 n.text = "A direção do Instituto do Cinema e do Audiovisual apresentou a demissão ao secretário de Estado da Cultura."
 end
 
@@ -1002,7 +1002,7 @@ end
 News.seed do |n|
 n.title = "Peter Gabriel vai atuar no Super Bock Super Rock"
 n.url = "http://feeds.jn.pt/~r/JN-CULTURA/~3/3DkRqXoopHw/story01.htm"
-n.category = 3
+n.category = 4
 n.text = "O músico britânico Peter Gabriel vai atuar em julho no 18.º Festival Super Bock Super Rock, perto da praia do Meco, Sesimbra, anunciou a organização através do Facebook."
 end
 
@@ -1184,7 +1184,7 @@ end
 News.seed do |n|
 n.title = "Portal das finanças é o que agrada mais a quem utiliza serviços públicos online"
 n.url = "http://feeds.jn.pt/~r/JN-TECNOLOGIA/~3/93LeHac_x0M/story01.htm"
-n.category = 4
+n.category = 5
 n.text = "A maioria dos inquiridos que usa a Internet para resolver assuntos da administração pública está satisfeita, sobretudo devido à poupança de tempo, e o portal das finanças é o que mais agrada, segundo um estudo da associação Deco."
 end
 

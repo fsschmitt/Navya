@@ -20,7 +20,7 @@ def getNews() :
 		desc = item.description.string
 		num = desc.find("<")
 		f.write(item.title.string.encode('UTF-8')+'\n')
-		f.write(item.link.string.encode('UTF-8')+'\n')
+		f.write('[urlppro]'+ item.link.string.encode('UTF-8')+ '[/urlppro]' + '\n')
 		f.write(desc[0:num].encode('UTF-8'))
 		val = val + 1
 	return
@@ -31,9 +31,6 @@ soup = BeautifulSoup(urllib2.urlopen('http://feeds.jn.pt/JN-Desporto').read())
 
 getNews()
 
-soup = BeautifulSoup(urllib2.urlopen('http://services.sapo.pt/RSS/Feed/sapo/desporto/teasers').read())
-
-getNews()
 
 #CULTURA E BOA VIDA
 
