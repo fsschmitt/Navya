@@ -1,17 +1,44 @@
-<h2>Sign in</h2>
+<table class="header-container">
+	<tr>
+		<td class="header-side">
+			<div class="leaves">
+				<%= image_tag("leaves.png")%>
+			</div>
+		</td>
+		<td class="header-text-container">
+			<div class="header">Navya</div>
+			<div class="subheader">notícias num só lugar</div>
+		</td>
+		<td class="header-side">
+			<!--<img class="rss" src="assets/rss.png"/>-->
+		</td>
+	</tr>
+</table>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+<div class ="main-container">
+	<div class="container">
+		<div class="row">
+			<div class="five columns centered">
+				<div class="header form-title">Sign in</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="three columns centered">
+				<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+				  <div><%= f.label :email %><br />
+				  <%= f.email_field :email %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+				  <div><%= f.label :password %><br />
+				  <%= f.password_field :password %></div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+				  <% if devise_mapping.rememberable? -%>
+				    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+				  <% end -%>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
-
-<%= render :partial => "devise/shared/links" %>
+				  <div><%= f.submit "Sign in" %></div>
+				<% end %>
+				<%= render :partial => "devise/shared/links" %>
+			</div>
+		</div>
+	</div>
+</div>

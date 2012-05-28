@@ -1,42 +1,42 @@
 News.seed do |n|
 n.title = "Deutsche Bank propõe moeda paralela para a Grécia: o geuro"
 n.url = "http://feedproxy.google.com/~r/PublicoRSS/~3/xzKEGMSbGns/deutsche-bank-propoe-moeda-paralela-para-a-grecia-o-geuro-1547123"
-n.category = 5
+n.category = 1
 n.text = "O Deutsche Bank, maior banco privado alemão, propôs hoje a introdução de uma moela paralela ao euro na Grécia, caso os adversários das medidas de austeridade ganhem as eleições legislativas de 17 de Junho."
 end
 
 News.seed do |n|
 n.title = "<i>Fast food</i> está a ser rapidamente devorado pela crise"
 n.url = "http://feedproxy.google.com/~r/PublicoRSS/~3/hWcEFsh8j6M/fast-food-esta-a-ser-rapidamente-devorado-pela-crise-1547117"
-n.category = 4
+n.category = 5
 n.text = "O grupo Ibersol, que detém algumas das maiores cadeias de restauração em Portugal, teve uma queda abrupta de 81% nos lucros no primeiro trimestre e já foi obrigado a fechar três estabelecimentos."
 end
 
 News.seed do |n|
 n.title = "A Portuguesa tocou pela primeira vez no Palácio da Liberdade indonésio"
 n.url = "http://feedproxy.google.com/~r/PublicoRSS/~3/rVjuZPoi5Gc/a-portuguesa-tocou-pela-primeira-vez-no-palacio-da-liberdade-indonesio--1547116"
-n.category = 5
+n.category = 1
 n.text = "Cavaco Silva chegou nesta terça-feira à Indonésia onde realizará uma visita histórica de dois dias. Cavaco é o primeiro Presidente da República português a visitar o país com mais muçulmanos no mundo, que era há não muito tempo adversário e hoje alimenta relações cordiais. Uma visita que tem a economia como marca principal – num país com um mercado apetecível de 235 milhões de habitantes."
 end
 
 News.seed do |n|
 n.title = "Primeiro voo privado está em órbita em direcção à ISS"
 n.url = "http://feedproxy.google.com/~r/PublicoRSS/~3/GhHeS4Zg0pw/capsula-naotripulada-dragon-ja-esta-em-orbita-em-direccao-a-iss-1547113"
-n.category = 5
+n.category = 4
 n.text = "A cápsula não-tripulada Dragon, da empresa americana SpaceX, já está na órbita terrestre. O engenho entrou em órbita cerca de dez minutos após o lançamento a partir da Florida (EUA) com a ajuda do foguetão Falcon 9 naquele que é o primeiro voo de um vaivém privado em direcção à Estação Espacial Internacional (ISS, na sigla em inglês), indicou o centro de controlo da SpaceX."
 end
 
 News.seed do |n|
 n.title = "Outros dois bombistas detidos após atentado no Iémen"
 n.url = "http://feedproxy.google.com/~r/PublicoRSS/~3/RUGyvRU4A1Q/outros-dois-bombistas-detidos-pouco-depois-do-atentado-em-sanaa-1547111"
-n.category = 5
+n.category = 4
 n.text = "Dois bombistas foram detidos pelas autoridades iemenitas pouco depois do atentado de segunda-feira em Sanaa, capital do Iémen, no qual morreram 96 militares, disse uma fonte dos serviços de segurança à AFP."
 end
 
 News.seed do |n|
 n.title = "Lucros da Mota-Engil crescem 45% para 4,5 milhões de euros"
 n.url = "http://feedproxy.google.com/~r/PublicoRSS/~3/QbXzdkdfK1k/lucros-da-motaengil-crescem-45-para-45-milhoes-de-euros-1547114"
-n.category = 5
+n.category = 4
 n.text = "A construtora registou uma subida de 11,6% no volume de negócios no primeiro trimestre de 2012. Actividade internacional já vale 55% da facturação."
 end
 
@@ -50,21 +50,21 @@ end
 News.seed do |n|
 n.title = "Hugo Chávez aprova 175 milhões de euros para dar portáteis portugueses nas escolas"
 n.url = "http://feedproxy.google.com/~r/PublicoRSS/~3/3ISfSE7-TO8/hugo-chavez-aprova-175-milhoes-de-euros-para-dar-portateis-portugueses-nas-escolas-1547110"
-n.category = 5
+n.category = 1
 n.text = "O presidente da Venezuela, Hugo Chávez, anunciou nesta terça-feira que aprovou uma verba de 957,3 milhões de bolívares fortes (175 milhões de euros) para dar aos alunos dos quinto e sexto anos os computadores Canaima (nome local dos Magalhães)."
 end
 
 News.seed do |n|
 n.title = "Espanha com recessão de 1,5% e desemprego acima de 25% este ano"
 n.url = "http://feedproxy.google.com/~r/PublicoRSS/~3/_vntLjK0u3s/espanha-com-recessao-de-15-e-desemprego-acima-de-25-este-ano-1547107"
-n.category = 5
+n.category = 1
 n.text = "A economia espanhola vai contrair pelo menos 1,5 por cento este ano e o desemprego vai ultrapassar os 25 por cento, sendo necessárias mais medidas de austeridade, incluindo um aumento do IVA, segundo a OCDE."
 end
 
 News.seed do |n|
 n.title = "Reformas serão cada vez mais difíceis de implementar na Grécia"
 n.url = "http://feedproxy.google.com/~r/PublicoRSS/~3/7TW-lI7q8KE/reformas-serao-cada-vez-mais-dificeis-de-implementar-na-grecia-1547106"
-n.category = 4
+n.category = 1
 n.text = "As reformas que a Grécia necessita para cumprir as suas metas de défice e os seus compromissos internacionais serão “cada vez mais difíceis de implementar” devido ao ambiente social, político e económico no país, antecipa a OCDE."
 end
 
@@ -78,21 +78,21 @@ end
 News.seed do |n|
 n.title = "Portugal vai ter de adoptar mais medidas de austeridade para cumprir metas da <i>troika</i>"
 n.url = "http://feedproxy.google.com/~r/PublicoRSS/~3/7S0uNiPNObo/portugal-vai-ter-de-adoptar-mais-medidas-de-austeridade-para-cumprir-metas-da-troika-1547103"
-n.category = 5
+n.category = 1
 n.text = "O Governo português vai ter de adoptar novas medidas de austeridade para cumprir as suas metas orçamentais, prevê a Organização para a Cooperação e Desenvolvimento Económico (OCDE)."
 end
 
 News.seed do |n|
 n.title = "Cinco mortos em explosão em Damasco"
 n.url = "http://feedproxy.google.com/~r/PublicoRSS/~3/_fx-Zr1EG74/cinco-mortos-em-explosao-em-damasco--1547100"
-n.category = 5
+n.category = 2
 n.text = "Cinco pessoas morreram nesta terça-feira num atentado num restaurante em Damasco, capital da Síria, num bairro que tem sido palco de confrontos e de protestos a exigir o fim do regime do Presidente Bashar al-Assad."
 end
 
 News.seed do |n|
 n.title = "Primeiro doutoramento honoris causa em Dança atribuído a Anna Mascolo"
 n.url = "http://feedproxy.google.com/~r/PublicoRSS/~3/fNb2BBDyTsM/primeiro-doutoramento-honoris-causa-em-danca-atribuido-a-anna-mascolo-1547101"
-n.category = 5
+n.category = 4
 n.text = "Anna Mascolo trabalha pelo reconhecimento da dança em Portugal há mais de 50 anos. Começou por dançar – tinha dez anos e ia às aulas às escondidas - mas é o ensino que mais a atrai. Nesta terça-feira, às 15h, recebe na Faculdade de Motricidade Humana, em Oeiras, o doutoramento honoris causa, o primeiro em dança do país."
 end
 
@@ -106,14 +106,14 @@ end
 News.seed do |n|
 n.title = "Encontro de Marionetas transforma Montemor-o-Novo na &quot;cidade dos bonecos&quot;"
 n.url = "http://noticias.sapo.pt/infolocal/artigo/1244602.html"
-n.category = 1
+n.category = 2
 n.text = "Onze companhias de teatro de marionetas, nacionais e estrangeiras,  vão dar “vida” aos seus “bonecos” em Montemor-o-Novo, entre 29 de maio e  10 de junho, num encontro que tem como “palcos” vários locais da  cidade"
 end
 
 News.seed do |n|
 n.title = "Comerciantes da Costa da Caparica protestam contra cancela que corta rua de acesso à praia"
 n.url = "http://noticias.sapo.pt/infolocal/artigo/1244601.html"
-n.category = 1
+n.category = 5
 n.text = "Cerca de 40 comerciantes protestaram hoje, na Costa da Caparica,  contra uma cancela que a Câmara de Almada quer pôr à entrada de uma rua  que dá acesso à praia, a restaurantes e bares e a parques de  estacionamento"
 end
 
@@ -127,21 +127,21 @@ end
 News.seed do |n|
 n.title = "Cavaco em Jacarta"
 n.url = "http://sol.sapo.pt/inicio/Politica/Interior.aspx?content_id=50020"
-n.category = 5
+n.category = 1
 n.text = "O Presidente da República portuguesa, Cavaco Silva, aterrou hoje em Jacarta para uma visita de Estado à Indonésia, a segunda etapa de uma viagem de dez dias que o levará ainda à Austrália e a Singapura"
 end
 
 News.seed do |n|
 n.title = "Monti é recebido com vaias na zona do terramoto"
 n.url = "http://diariodigital.sapo.pt/news.asp?id_news=574028"
-n.category = 5
+n.category = 2
 n.text = "O primeiro-ministro de Itália, Mario Monti, foi recebido esta terça-feira com algumas vaias na sua chegada a Sant´Agostino, uma das localidades mais afectadas pelo terramoto de 5,9 graus na escala de Richter que castigou o norte do país na madrugada de domingo"
 end
 
 News.seed do |n|
 n.title = "Primeira-dama timorense garante que português é língua falada em casa"
 n.url = "http://noticias.sapo.pt/nacional/artigo/primeira-dama-timorense-garante-que-portugues-e-lingua-falada-em-casa_14359352.html"
-n.category = 1
+n.category = 5
 n.text = "A nova primeira-dama timorense, Isabel Ferreira, garantiu hoje que, apesar de só ter começado a aprender português em 1999, essa é a língua falada na casa do casal presidencial"
 end
 
@@ -155,7 +155,7 @@ end
 News.seed do |n|
 n.title = "Gisele Bündchen grávida?"
 n.url = "http://fama.sapo.pt/noticia/gisele-bundchen-gravida-2"
-n.category = 5
+n.category = 1
 n.text = "Gisele Bündchen poderá estar à espera do seu segundo filho, de acordo com notícias da imprensa brasileira"
 end
 
@@ -183,7 +183,7 @@ end
 News.seed do |n|
 n.title = "Brincadeira com amigos deixa noivo nos Cuidados Intensivos"
 n.url = "http://sol.sapo.pt/inicio/Vida/Interior.aspx?content_id=50019"
-n.category = 5
+n.category = 1
 n.text = "Aquele que se esperava ser o dia mais feliz das suas vidas acabou em tragédia. O insólito aconteceu na cidade de Pruvia, nas Astúrias, quando um jovem recém-casado foi erguido nos braços de amigos e familiares e projectado pelos ares em jeito de celebração e alegria"
 end
 
@@ -197,7 +197,7 @@ end
 News.seed do |n|
 n.title = "Candidato socialista de Setúbal denuncia «inscrições em massa»"
 n.url = "http://diariodigital.sapo.pt/news.asp?id_news=574023"
-n.category = 5
+n.category = 1
 n.text = "O candidato à liderança da Federação Distrital do PS/Setúbal, Eduardo Cabrita, apelou hoje à intervenção do secretário-geral do PS, António José Seguro, face à existência de «inscrições em massa» de novos militantes, em três secções socialistas do distrito"
 end
 
@@ -211,7 +211,7 @@ end
 News.seed do |n|
 n.title = "Comerciantes protestam contra cancela que corta rua de acesso à praia"
 n.url = "http://noticias.sapo.pt/nacional/artigo/comerciantes-protestam-contra-cancela-que-corta-rua-de-acesso-a-praia_14359564.html"
-n.category = 1
+n.category = 5
 n.text = "Cerca de 40 comerciantes protestaram hoje, na Costa da Caparica, contra uma cancela que a Câmara de Almada quer pôr à entrada de uma rua que dá acesso à praia, a restaurantes e bares e a parques de estacionamento"
 end
 
@@ -225,28 +225,28 @@ end
 News.seed do |n|
 n.title = "Ministra diz que processo para aumentar o preço da água está em curso e visa evitar colapso financeiro do sistema"
 n.url = "http://sicnoticias.sapo.pt/economia/article1562175.ece"
-n.category = 5
+n.category = 1
 n.text = "A ministra do Ambiente garante que já está em marcha o processo para aumentar o preço da água. A medida deve entrar em vigor no próximo ano. Assunção Cristas defende que sem uma subida dos preços, há o risco de colapso financeiro do sistema"
 end
 
 News.seed do |n|
 n.title = "Ministra acredita que «explicações e abertura» impedirão desclassificação do Douro"
 n.url = "http://diariodigital.sapo.pt/news.asp?id_news=574021"
-n.category = 5
+n.category = 1
 n.text = "A ministra da Agricultura disse-se hoje «convencida» de que as explicações do Governo quanto ao processo de construção da barragem de Foz Tua impedirão a UNESCO de retirar ao Alto Douro Vinhateiro a classificação de Património da Humanidade"
 end
 
 News.seed do |n|
 n.title = "Perdas dos bancos espanhóis podem atingir os 260 mil milhões"
 n.url = "http://sol.sapo.pt/inicio/Economia/Interior.aspx?content_id=50017"
-n.category = 5
+n.category = 1
 n.text = "As perdas dos bancos espanhóis podem atingir os 260.000 milhões de euros e o sector poderá precisar de uma ajuda de até 60.000 milhões de euros, afirmou hoje o Instituto Internacional de Finança (IIF)"
 end
 
 News.seed do |n|
 n.title = "Brincadeira com amigos deixa noivo nos Cuidados Intensivos"
 n.url = "http://www.sol.pt/inicio/Vida/Interior.aspx?content_id=50019"
-n.category = 5
+n.category = 4
 n.text = "Aquele que se esperava ser o dia mais feliz das suas vidas acabou em tragédia. O insólito aconteceu na cidade de Pruvia, nas Astúrias, quando um jovem recém-casado foi erguido nos braços de amigos e familiares.."
 end
 
@@ -260,14 +260,14 @@ end
 News.seed do |n|
 n.title = "Perdas dos bancos espanhóis podem atingir os 260 mil milhões"
 n.url = "http://www.sol.pt/inicio/Economia/Interior.aspx?content_id=50017"
-n.category = 5
+n.category = 1
 n.text = "As perdas dos bancos espanhóis podem atingir os 260.000 milhões de euros e o sector poderá precisar de uma ajuda de até 60.000 milhões de euros, afirmou hoje o Instituto Internacional de Finança (IIF)"
 end
 
 News.seed do |n|
 n.title = "Brasil corta imposto sobre veículos e incentiva crédito para consumo"
 n.url = "http://www.sol.pt/inicio/Internacional/Interior.aspx?content_id=50016"
-n.category = 5
+n.category = 1
 n.text = "O governo brasileiro anunciou na segunda-feira uma redução da carga tributária que incide sobre a venda de veículos, como forma de estímulo à indústria automobilística nacional, além de outras medidas.."
 end
 
@@ -281,7 +281,7 @@ end
 News.seed do |n|
 n.title = "Obama pressiona Europa para melhorar coordenação no combate à crise"
 n.url = "http://www.sol.pt/inicio/Internacional/Interior.aspx?content_id=50015"
-n.category = 5
+n.category = 1
 n.text = "O presidente norte-americano, Barack Obama, pressionou na segunda-feira os governos da Zona Euro para que melhorem a coordenação no combate à crise de dívida, acrescentando que o problema na Grécia tem.."
 end
 
@@ -309,14 +309,14 @@ end
 News.seed do |n|
 n.title = "Ministra acredita que 'explicações e abertura' impedirão desclassificação do Douro"
 n.url = "http://www.sol.pt/inicio/Sociedade/Interior.aspx?content_id=50010"
-n.category = 5
+n.category = 1
 n.text = "A ministra da Agricultura disse-se hoje «convencida» de que as explicações do Governo quanto ao processo de construção da barragem de Foz Tua impedirão a UNESCO de retirar ao Alto Douro Vinhateiro a classificação.."
 end
 
 News.seed do |n|
 n.title = "Portugal comparticipa esforço financeiro da NATO no Afeganistão após 2014"
 n.url = "http://www.sol.pt/inicio/Politica/Interior.aspx?content_id=50009"
-n.category = 5
+n.category = 1
 n.text = "O primeiro-ministro, Pedro Passos Coelho, afirmou hoje que Portugal vai comparticipar no esforço financeiro da Nato para assegurar a operacionalidade das Forças Armadas do Afeganistão para além de 2014"
 end
 
@@ -344,14 +344,14 @@ end
 News.seed do |n|
 n.title = "Portugueses que vão assistir aos Jogos devem vacinar-se contra o sarampo"
 n.url = "http://www.sol.pt/inicio/Sociedade/Interior.aspx?content_id=50005"
-n.category = 5
+n.category = 1
 n.text = "Os portugueses que forem assistir Jogos Olímpicos e aos Jogos Paralímpicos de Londres 2012 devem vacinar-se contra o sarampo, recomendou hoje, em comunicado, a Direcção-Geral de Saúde (DGS)"
 end
 
 News.seed do |n|
 n.title = "Ramos-Horta apoiar Partido Democrático nas legislativas"
 n.url = "http://www.sol.pt/inicio/Internacional/Interior.aspx?content_id=50004"
-n.category = 5
+n.category = 2
 n.text = "O ex-Presidente de Timor-Leste José Ramos-Horta anunciou hoje que vai apoiar o Partido Democrático (PD) nas eleições legislativas, marcadas para 7 de Julho no país"
 end
 
@@ -365,14 +365,14 @@ end
 News.seed do |n|
 n.title = "STCP anuncia equilíbrio operacional pela primeira vez em 40 anos"
 n.url = "http://www.sol.pt/inicio/Economia/Interior.aspx?content_id=50002"
-n.category = 5
+n.category = 4
 n.text = "A administração da Sociedade de Transportes Colectivos do Porto (STCP) anunciou hoje que a empresa atingiu o «equilíbrio operacional», pela primeira vez desde a década de 1970"
 end
 
 News.seed do |n|
 n.title = "PCP apresenta projecto de lei para IVA na restauração regressar aos 13%"
 n.url = "http://www.sol.pt/inicio/Politica/Interior.aspx?content_id=50001"
-n.category = 5
+n.category = 1
 n.text = "O PCP anunciou hoje que vai apresentar um projecto de lei para o IVA na restauração regressar aos 13 por cento, dada a «gravidade da situação» nas empresas do sector, com um «elevadíssimo número de encerramentos».."
 end
 
@@ -400,7 +400,7 @@ end
 News.seed do |n|
 n.title = "Estrangeiros obrigados a usar bandeira da Nova Zelândia para pescar"
 n.url = "http://www.sol.pt/inicio/Internacional/Interior.aspx?content_id=49997"
-n.category = 5
+n.category = 1
 n.text = "O Governo da Nova Zelândia anunciou hoje que obrigará os barcos estrangeiros a adoptar nos próximos quatro anos a bandeira neozelandesa para pescar nas suas águas, de modo a melhorar as práticas do sector"
 end
 
@@ -414,14 +414,14 @@ end
 News.seed do |n|
 n.title = "Dilma Rousseff diz que Brasil está '300%' preparado para enfrentar crise"
 n.url = "http://www.sol.pt/inicio/Internacional/Interior.aspx?content_id=49995"
-n.category = 5
+n.category = 1
 n.text = "A presidente brasileira, Dilma Rousseff, afirmou ontem que o Brasil está «300 por cento» preparado para enfrentar a crise económica mundial, durante inauguração de uma obra em Laguna, Santa Catarina"
 end
 
 News.seed do |n|
 n.title = "Passos: Governo 'não faz pressões nem chantagens' sobre media"
 n.url = "http://www.sol.pt/inicio/Politica/Interior.aspx?content_id=49994"
-n.category = 5
+n.category = 1
 n.text = "O primeiro-ministro afirmou ontem que o governo «não faz chantagens ou pressão sobre a comunicação social» e defendeu que a opinião pública deve ter acesso à informação «sem interferências ilegítimas»"
 end
 
@@ -442,14 +442,14 @@ end
 News.seed do |n|
 n.title = "Estações do Metro todas encerradas devido a greve parcial"
 n.url = "http://www.sol.pt/inicio/Sociedade/Interior.aspx?content_id=49991"
-n.category = 5
+n.category = 1
 n.text = "As estações do metro estão todas encerradas devido à greve parcial que os trabalhadores do Metropolitano de Lisboa iniciaram hoje às 5h30, disse à agência Lusa Anabela Carvalheira, da Federação de Sindicatos.."
 end
 
 News.seed do |n|
 n.title = "Autarquias, Madeira e banca na mira da 'troika'"
 n.url = "http://www.sol.pt/inicio/Politica/Interior.aspx?content_id=49990"
-n.category = 5
+n.category = 1
 n.text = "Governo terá de apresentar aos credores a primeira avaliação ao programa da Madeira e o valor total das dívidas das câmaras, uma área onde «há muito para fazer», refere fonte da troika. As finanças locais.."
 end
 
@@ -470,21 +470,21 @@ end
 News.seed do |n|
 n.title = "PSD contra audições de Relvas e do Público"
 n.url = "http://www.sol.pt/inicio/Politica/Interior.aspx?content_id=49987"
-n.category = 5
+n.category = 1
 n.text = "O PSD anunciou hoje que votará contra os pedidos de audição relativos ao caso que envolve o ministro Miguel Relvas e o jornal Público por considerar inoportuno o Parlamento tratar este assunto enquanto.."
 end
 
 News.seed do |n|
 n.title = "Taxa sobre transacções da Bolsa deve apoiar desempregados"
 n.url = "http://www.sol.pt/inicio/Sociedade/Interior.aspx?content_id=49986"
-n.category = 5
+n.category = 1
 n.text = "A CGTP propôs hoje o alargamento do subsídio social de desemprego durante o período de crise, que seria financiado integralmente por uma taxa de 4 por cento a aplicar sobre todas as transacções bolsistas"
 end
 
 News.seed do |n|
 n.title = "Greve de revisores provoca perturbações no serviço urbano de Lisboa esta semana"
 n.url = "http://www.sol.pt/inicio/Sociedade/Interior.aspx?content_id=49984"
-n.category = 5
+n.category = 1
 n.text = "Uma nova greve dos trabalhadores das bilheteiras e revisores da CP &ndash; Comboios de Portugal convocada para 23, 24 e 25 de Maio nos comboios urbanos de Lisboa vai provocar «fortes perturbações» na circulação.."
 end
 
@@ -526,14 +526,14 @@ end
 News.seed do |n|
 n.title = "PS vai requerer audição de Relvas e de directora do Público no Parlamento"
 n.url = "http://www.sol.pt/inicio/Politica/Interior.aspx?content_id=49978"
-n.category = 5
+n.category = 1
 n.text = "O PS vai requerer a presença no Parlamento da directora e da direcção editorial do Público e de Miguel Relvas, para explicações sobre alegadas pressões do ministro-adjunto e dos Assuntos Parlamentares.."
 end
 
 News.seed do |n|
 n.title = "Teatro: Funeral de João Miguel Rodrigues realiza-se na terça-feira "
 n.url = "http://www.sol.pt/inicio/Cultura/Interior.aspx?content_id=49977"
-n.category = 3
+n.category = 2
 n.text = "O funeral do actor e encenador João Miguel Rodrigues realiza-se na terça-feira, ao início da tarde, para o cemitério do Alto de S. João, disse à agência Lusa fonte dos Artistas Unidos"
 end
 
@@ -547,7 +547,7 @@ end
 News.seed do |n|
 n.title = "PS descrente que maioria PSD/CDS chumbe audição de Relvas"
 n.url = "http://www.sol.pt/inicio/Politica/Interior.aspx?content_id=49975"
-n.category = 5
+n.category = 1
 n.text = "A vice-presidente da bancada socialista Inês de Medeiros considerou hoje «pouco plausível» que a maioria PSD/CDS chumbe pedidos de audição parlamentar do ministro Miguel Relvas sobre o caso que o envolve.."
 end
 
@@ -561,7 +561,7 @@ end
 News.seed do |n|
 n.title = "Bordallo Pinheiro produz padre em cerâmica com 1,80 metros"
 n.url = "http://www.sol.pt/inicio/Cultura/Interior.aspx?content_id=49973"
-n.category = 3
+n.category = 1
 n.text = "Um padre, com 1,80 metros de altura, será a primeira peça produzida pelas faianças Bordallo Pinheiro, no âmbito de um conjunto de figuras bordalianas que irão integrar a obra de regeneração urbana das.."
 end
 
@@ -666,14 +666,14 @@ end
 News.seed do |n|
 n.title = "Portugueses que vão assistir aos Jogos Olimpicos devem vacinar-se contra o sarampo"
 n.url = "http://feeds.jn.pt/~r/JN-DESPORTO/~3/Puq7AbB5vKw/story01.htm"
-n.category = 2
+n.category = 1
 n.text = "Os portugueses que forem assistir Jogos Olímpicos e aos Jogos Paralímpicos de Londres 2012 devem vacinar-se contra o sarampo, recomendou hoje, em comunicado, a Direção-Geral de Saúde."
 end
 
 News.seed do |n|
 n.title = "Jessica Augusto corre maratona olímpica e sonha com o ouro"
 n.url = "http://feeds.jn.pt/~r/JN-DESPORTO/~3/lb_eiTt-kkI/story01.htm"
-n.category = 2
+n.category = 5
 n.text = "Jessica Augusto vai cumprir o objetivo de correr a maratona olímpica e confessa que o ouro é um sonho antigo, mas, numa perspetiva mais realista, diz que terminar entre as 15 primeiras em Londres já seria bom."
 end
 

@@ -3,11 +3,11 @@ class HomeController < ApplicationController
   	@ls = `ls`
   	@economy_politics= ["news1","news2","news3","news4","news5","news 6"]
 
-  	@economia = News.where("category = ?", 1).limit(5)
-  	@desporto = News.where("category = ?", 2).limit(5)
-  	@cultura_lazer = News.where("category = ?", 3).limit(5)
-  	@ciencias_tecnologia = News.where("category = ?", 4).limit(5)
-  	@sociedade = News.where("category = ?", 5).limit(5)
+  	@economia = News.find(:all,:conditions => ["category = ?", 1], :limit => 5, :order => 'created_at')
+  	@desporto = News.find(:all,:conditions => ["category = ?", 2], :limit => 5, :order => 'created_at')
+  	@cultura_lazer = News.find(:all,:conditions => ["category = ?", 3], :limit => 5, :order => 'created_at')
+  	@ciencias_tecnologia = News.find(:all,:conditions => ["category = ?", 4], :limit => 5, :order => 'created_at')
+  	@sociedade = News.find(:all,:conditions => ["category = ?", 5], :limit => 5, :order => 'created_at')
 
   end
 
